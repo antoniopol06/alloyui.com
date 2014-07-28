@@ -1,10 +1,11 @@
 YUI().use('node', function (Y) {
 
-  var ericsQuote = '"When AlloyUI arrived on the scene, it added a new dimension to YUI contributorship. Professional, robust, and beautifully designed, the Alloy project and its engineers created a world of new options for YUI implementers, and it helped the YUI project turn the corner to become a contributor-driven, community-owned open source project." <br><span class="author">&mdash; Eric Miraglia, Product Manager, Google Inc. &amp; Former YUI Manager</span>',
-      satyansQuote = '"AlloyUI was one of the first professional quality solutions built on top of YUI3, and as early adopters the folks at AlloyUI have been instrumental in helping define some of the core functionality which now makes up YUI." <br><span class="author">&mdash; YUI Team</span>',
-      quotes = [ericsQuote, satyansQuote],
+  var chemasQuote = '"When I first saw AlloyEditor I couldn\'t believe it... how could that be the same Web Editor we\'d been using for years?" <br><span class="author">&mdash; Chema Balsas, Frontend Developer, Liferay Inc.</span>',
+      juansQuote = '"AlloyEditor will change the way we write content for the Web. With AlloyEditor you quite never stop thinking about how your next content will look." <br><span class="author">&mdash; Juan Hidalgo, UX Designer, Liferay Inc.</span>',
+      sergiosQuote = '"The new AlloyEditor is so intuitive, simple, and useful that you won\'t realize you are actually using an editor. Just focus on the content while AlloyEditor takes care of all the rest." <br><span class="author">&mdash; Sergio Gonz&aacute;lez, Collaboration Lead, Liferay Inc.</span>',
+      quotes = [chemasQuote, juansQuote, sergiosQuote],
       quoteContainer = Y.one('.quote p'),
-      random = Math.floor(Math.random() * 2);
+      random = Math.floor(Math.random() * 3);
 
   quoteContainer.append(quotes[random]);
 

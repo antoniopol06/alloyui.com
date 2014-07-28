@@ -31,14 +31,14 @@ module.exports = {
       isLastVersion: true,
 
       // Production URL
-      url: 'http://alloyui.com',
+      url: '/alloy-editor',
 
       // Github branch
-      githubUrl: 'https://github.com/liferay/alloy-ui/',
+      githubUrl: 'https://github.com/liferay/alloy-editor/',
 
       // Basic info
-      title: 'AlloyUI',
-      description: 'AlloyUI is a framework built on top of YUI3 (JavaScript) that uses Bootstrap (HTML/CSS) to provide a simple API for building high scalable applications.'
+      title: 'Alloy Editor',
+      description: 'Alloy Editor is modern WYSIWIG editor built on top of CKEditor, designed to create modern and gorgeous web content.'
     },
 
     /* -----------------------------
@@ -84,7 +84,7 @@ module.exports = {
 
     // Get the download URL for this Alloy version
     getDownloadUrl: function() {
-      return "https://github.com/liferay/alloy-ui/releases/download/" + this.alloy.version + "/alloy-" + this.alloy.version + ".zip";
+      return "https://github.com/liferay/alloy-editor/releases/download/" + this.alloy.version + "/alloy-" + this.alloy.version + ".zip";
     },
 
     // Get the absolute URL of the website
