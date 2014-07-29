@@ -1,210 +1,204 @@
 module.exports = {
 
-  prompts: false,
+    prompts: false,
 
-  /* =================================
-   * Template Data
-   */
-
-  // These are variables will be accessible via our templates
-  templateData: {
-
-    /* -----------------------------
-     * AlloyUI Information
+    /* =================================
+     * Template Data
      */
 
-    alloy: {
-      // AlloyUI version
-      version: '2.5.0',
+    // These are variables will be accessible via our templates
+    templateData: {
 
-      // CDN domain
-      cdnDomain: 'http://cdn.alloyui.com'
-    },
+        /* -----------------------------
+         * AlloyUI Information
+         */
 
-    /* -----------------------------
-     * Site Information
-     */
+        alloy: {
+            // AlloyUI version
+            version: '2.5.0',
 
-    site: {
-      // Website version
-      version: '2.5.x',
-      isLastVersion: true,
-
-      // Production URL
-      url: '/alloy-editor',
-
-      // Github branch
-      githubUrl: 'https://github.com/liferay/alloy-editor/',
-
-      // Basic info
-      title: 'Alloy Editor',
-      description: 'Alloy Editor is modern WYSIWIG editor built on top of CKEditor, designed to create modern and gorgeous web content.'
-    },
-
-    /* -----------------------------
-     * Helpers
-     */
-
-    // Get the prepared site/document title
-    getPreparedTitle: function() {
-
-      // if we have a document title, then we should use that and suffix the site's title into it
-      if (this.document.title) {
-        if (this.document.category) {
-          return "" + this.document.category + " - " + this.document.title + " | " + this.site.title;
-        } else {
-          return "" + this.document.title + " | " + this.site.title;
-        }
-      } // if our document does not have it's own title, then we should just use the site's title
-      else {
-        return this.site.title;
-      }
-    },
-
-    // Get the prepared site/document description
-    getPreparedDescription: function() {
-      // if we have a document description, then we should use that, otherwise use the site's description
-      return this.document.description || this.site.description;
-    },
-
-    // Get the Bootstrap CSS file for this Alloy version
-    getBootstrapCSS: function() {
-      return "" + this.alloy.cdnDomain + "/" + this.alloy.version + "/aui-css/css/bootstrap.min.css";
-    },
-
-    // Get the CDN path for this Alloy version
-    getCdnPath: function() {
-      return "" + this.alloy.cdnDomain + "/" + this.alloy.version;
-    },
-
-    // Get the CDN seed file for this Alloy version
-    getCdnSeed: function() {
-      return "" + this.alloy.cdnDomain + "/" + this.alloy.version + "/aui/aui-min.js";
-    },
-
-    // Get the download URL for this Alloy version
-    getDownloadUrl: function() {
-      return "https://github.com/liferay/alloy-editor/releases/download/" + this.alloy.version + "/alloy-" + this.alloy.version + ".zip";
-    },
-
-    // Get the absolute URL of the website
-    getSiteUrl: function() {
-      if (this.site.isLastVersion) {
-        return "" + this.site.url;
-      } else {
-        return "" + this.site.url + "/versions/" + this.site.version;
-      }
-    },
-
-    // Get the absolute URL of the assets folder
-    getAssetsUrl: function() {
-      if (this.site.isLastVersion) {
-        return "" + this.site.url + "/website";
-      } else {
-        return "" + this.site.url + "/versions/" + this.site.version + "/website";
-      }
-    },
-
-    // Read File
-    readFile: function(relativePath) {
-      var fsUtil, path, result;
-      fsUtil = require('fs');
-      path = this.document.fullDirPath + '/' + relativePath;
-      result = fsUtil.readFileSync(path);
-      if (result instanceof Error) {
-        throw result;
-      } else {
-        return result.toString();
-      }
-    },
-
-    // Code File
-    codeFile: function(relativePath, language) {
-      var contents;
-      contents = this.readFile(relativePath);
-      return "<pre><code class=\"" + language + "\">" + contents + "</code></pre>";
-    }
-  },
-
-  /* =================================
-   * Collections
-   */
-
-  collections: {
-    // Get all tutorials sorted by type & alphabetical order
-    tutorials: function() {
-      return this.getCollection("documents").findAllLive({
-        url: {
-          $startsWith: '/tutorials'
-        }
-      }, [
-        {
-          type: 1,
-          order: 1,
-          title: 1
-        }
-      ]);
-    },
-
-    // Get all examples sorted by category & alphabetical order
-    examples: function() {
-      return this.getCollection("documents").findAllLive({
-        url: {
-          $startsWith: '/examples'
-        }
-      }, [
-        {
-          category: 1,
-          title: 1
-        }
-      ]);
-    },
-
-    // Get all examples that contains featuringOrder attribute
-    featuring: function(database) {
-      return database.findAllLive({
-        featuringOrder: {
-          $exists: true
-        }
-      }, [
-        {
-          featuringOrder: 1
-        }
-      ]);
-    }
-  },
-
-  /* =================================
-   * Environments
-   */
-
-  environments: {
-    development: {
-      templateData: {
+            // CDN domain
+            cdnDomain: 'http://cdn.alloyui.com'
+        },
 
         /* -----------------------------
          * Site Information
          */
 
-        // Development URL
         site: {
-          url: 'http://localhost:9778'
+            // Website version
+            version: '2.5.x',
+            isLastVersion: true,
+
+            // Production URL
+            url: '/alloy-editor',
+
+            // Github branch
+            githubUrl: 'https://github.com/liferay/alloy-editor/',
+
+            // Basic info
+            title: 'Alloy Editor',
+            description: 'Alloy Editor is a modern WYSIWYG editor built on top of CKEditor, designed to create modern and gorgeous web content.'
         },
 
         /* -----------------------------
          * Helpers
          */
 
-        // Get the absolute Development URL of the website
-        getSiteUrl: function() {
-          return "" + this.site.url;
+        // Get the prepared site/document title
+        getPreparedTitle: function() {
+
+            // if we have a document title, then we should use that and suffix the site's title into it
+            if (this.document.title) {
+                if (this.document.category) {
+                    return "" + this.document.category + " - " + this.document.title + " | " + this.site.title;
+                } else {
+                    return "" + this.document.title + " | " + this.site.title;
+                }
+            } // if our document does not have it's own title, then we should just use the site's title
+            else {
+                return this.site.title;
+            }
         },
 
-        // Get the absolute Development URL of the assets folder
+        // Get the prepared site/document description
+        getPreparedDescription: function() {
+            // if we have a document description, then we should use that, otherwise use the site's description
+            return this.document.description || this.site.description;
+        },
+
+        // Get the Bootstrap CSS file for this Alloy version
+        getBootstrapCSS: function() {
+            return "" + this.alloy.cdnDomain + "/" + this.alloy.version + "/aui-css/css/bootstrap.min.css";
+        },
+
+        // Get the CDN path for this Alloy version
+        getCdnPath: function() {
+            return "" + this.alloy.cdnDomain + "/" + this.alloy.version;
+        },
+
+        // Get the CDN seed file for this Alloy version
+        getCdnSeed: function() {
+            return "" + this.alloy.cdnDomain + "/" + this.alloy.version + "/aui/aui-min.js";
+        },
+
+        // Get the download URL for this Alloy version
+        getDownloadUrl: function() {
+            return "https://github.com/liferay/alloy-editor/releases/download/" + this.alloy.version + "/alloy-" + this.alloy.version + ".zip";
+        },
+
+        // Get the absolute URL of the website
+        getSiteUrl: function() {
+            if (this.site.isLastVersion) {
+                return "" + this.site.url;
+            } else {
+                return "" + this.site.url + "/versions/" + this.site.version;
+            }
+        },
+
+        // Get the absolute URL of the assets folder
         getAssetsUrl: function() {
-          return "" + this.site.url + "/website";
+            if (this.site.isLastVersion) {
+                return "" + this.site.url + "/website";
+            } else {
+                return "" + this.site.url + "/versions/" + this.site.version + "/website";
+            }
+        },
+
+        // Read File
+        readFile: function(relativePath) {
+            var fsUtil, path, result;
+            fsUtil = require('fs');
+            path = this.document.fullDirPath + '/' + relativePath;
+            result = fsUtil.readFileSync(path);
+            if (result instanceof Error) {
+                throw result;
+            } else {
+                return result.toString();
+            }
+        },
+
+        // Code File
+        codeFile: function(relativePath, language) {
+            var contents;
+            contents = this.readFile(relativePath);
+            return "<pre><code class=\"" + language + "\">" + contents + "</code></pre>";
         }
-      }
+    },
+
+    /* =================================
+     * Collections
+     */
+
+    collections: {
+        // Get all tutorials sorted by type & alphabetical order
+        tutorials: function() {
+            return this.getCollection("documents").findAllLive({
+                url: {
+                    $startsWith: '/tutorials'
+                }
+            }, [{
+                type: 1,
+                order: 1,
+                title: 1
+            }]);
+        },
+
+        // Get all examples sorted by category & alphabetical order
+        examples: function() {
+            return this.getCollection("documents").findAllLive({
+                url: {
+                    $startsWith: '/examples'
+                }
+            }, [{
+                category: 1,
+                title: 1
+            }]);
+        },
+
+        // Get all examples that contains featuringOrder attribute
+        featuring: function(database) {
+            return database.findAllLive({
+                featuringOrder: {
+                    $exists: true
+                }
+            }, [{
+                featuringOrder: 1
+            }]);
+        }
+    },
+
+    /* =================================
+     * Environments
+     */
+
+    environments: {
+        development: {
+            templateData: {
+
+                /* -----------------------------
+                 * Site Information
+                 */
+
+                // Development URL
+                site: {
+                    url: 'http://localhost:9778'
+                },
+
+                /* -----------------------------
+                 * Helpers
+                 */
+
+                // Get the absolute Development URL of the website
+                getSiteUrl: function() {
+                    return "" + this.site.url;
+                },
+
+                // Get the absolute Development URL of the assets folder
+                getAssetsUrl: function() {
+                    return "" + this.site.url + "/website";
+                }
+            }
+        }
     }
-  }
 };

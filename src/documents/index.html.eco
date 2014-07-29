@@ -6,8 +6,8 @@ layout: default
   <div class="container">
     <img src="<%= @getAssetsUrl() %>/img/screenshots.png" alt="Screenshots of AlloyEditor" width="1193" height="450">
     <div class="presentation">
-      <h2>Enjoy Writing</h2>
-      <h3>Editing made sexy again.</h3>
+      <h2>Alloy Editor</h2>
+      <h3>Editing made sexy again!</h3>
       <p><%= @site.description %></p>
       <a class="bt" id="bt-download" href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">Download</a>
       <a class="bt" id="bt-fork" href="<%= @site.githubUrl %>">Fork</a>
