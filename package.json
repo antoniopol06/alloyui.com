@@ -15,10 +15,10 @@
     "test": "docpad generate"
   },
   "dependencies": {
-    "docpad": "~6.64.3",
+    "docpad": "~6.69.0",
     "docpad-plugin-cleanurls": "~2.7.0",
     "docpad-plugin-eco": "~2.0.3",
-    "docpad-plugin-highlightjs": "~2.2.1",
+    "docpad-plugin-highlightjs": "~2.2.2",
     "docpad-plugin-marked": "~2.2.1",
     "docpad-plugin-related": "~2.2.2"
   },
