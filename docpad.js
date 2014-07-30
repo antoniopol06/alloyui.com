@@ -39,6 +39,7 @@ module.exports = {
             // Basic info
             title: 'Alloy Editor',
             description: 'Alloy Editor is a modern WYSIWYG editor built on top of CKEditor, designed to create modern and gorgeous web content.'
+
         },
 
         /* -----------------------------

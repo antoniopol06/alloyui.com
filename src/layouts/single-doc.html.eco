@@ -27,7 +27,7 @@ layout: default
       <% end %>
     </ul>
 
-    <p class="related">List of modules</p>
+    <p class="related">Create UI elements</p>
     <ul class="nav nav-list bs-docs-sidenav affix-top">
       <% for tutorial in @getCollection("tutorials").toJSON(): %>
         <% if tutorial.type == "module": %>

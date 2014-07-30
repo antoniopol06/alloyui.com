@@ -9,6 +9,7 @@ layout: default
       <h2>Alloy Editor</h2>
       <h3>Editing made sexy again!</h3>
       <p><%= @site.description %></p>
+      <p>Works on IE7+, Chrome, Firefox and Safari.</p>
       <a class="bt" id="bt-download" href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">Download</a>
       <a class="bt" id="bt-fork" href="<%= @site.githubUrl %>">Fork</a>
     </div>
@@ -29,7 +30,7 @@ layout: default
 
     <div class="row">
       <div class="title span12">
-        <h3>get started</h3>
+        <h3>Get started</h3>
         <p>it’s really easy!</p>
       </div>
     </div>
@@ -43,6 +44,8 @@ layout: default
 &lt;script src="<%= @getCdnSeed() %>"&gt;&lt;/script&gt;
 &lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
       </div>
+
+
       <div class="instructions span12">
         <p class="steps">2 - Start using AlloyEditor</p>
         <p class="description">Then initialize AlloyEditor and specify the configuration.</p>
@@ -54,8 +57,48 @@ layout: default
         styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter']
     }
 });</code></pre>
-        <p><a class="btn btn-link" href="<%= @getSiteUrl() %>/tutorials/" style="padding-left: 0;">Check the full tutorial &raquo;</a></p>
       </div>
+    </div>
+
+    <p>And that is everything you need to get started!</p>
+
+    <hr>
+
+    <h3>Want to customize the editor? Glad you asked:</h3>
+
+    <div class="row">
+      <div class="instructions span12">
+        <p class="description">Using YUI3 instead Alloy:</p>
+        <pre><code>&lt;link href="bootstrap.css" rel="stylesheet"&gt;&lt;/link&gt;
+&lt;link href="alloy-editor/assets/alloy-editor.css" rel="stylesheet"&gt;&lt;/link&gt;
+&lt;script src=&quot;http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="instructions span12">
+      <p class="description">Using already existing version of CKEditor, but with our UI:</p>
+        <pre><code>&lt;script src=&quot;alloy-editor/ckeditor.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;alloy-editor/alloy-editor-core.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+      </div>
+    </div>
+
+    <hr>
+
+    <p>Want to <a href="tutorials/toolbar-configuration">customize the toolbars?</a></p>
+
+    <p>Want to <a href="tutorials/toolbar-configuration#buttons-reordering">reorder, add or remove buttons?</a></p>
+
+    <p>Want to <a href="tutorials/button">create new Button?</a></p>
+
+    <p>Want to <a href="tutorials/toolbar">create new Toolbar?</a></p>
+
+    <p>Want <a href="tutorials">more</a>?</p>
+
+    <div>
+      <h2><a class="btn btn-link link-to-tutorials" href="<%= @getSiteUrl() %>/tutorials/" style="padding-left: 0;">Check the full tutorial &raquo;</a></h2>
     </div>
 
     <hr>
