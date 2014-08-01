@@ -185,6 +185,10 @@ pre {
   border-radius: 6px;
 }
 
+[contenteditable]:focus {
+  outline: none;
+}
+
 #wrap {
   min-height: 100%;
   height: auto !important;

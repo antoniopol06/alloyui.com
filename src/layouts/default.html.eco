@@ -48,7 +48,7 @@
           </a>
           <div class="pull-right">
             <ul class="nav">
-              <li><a href="<%= @getSiteUrl() %>/examples/">Examples</a></li>
+              <li><a href="<%= @getSiteUrl() %>/examples/">Example</a></li>
               <li><a href="<%= @getSiteUrl() %>/tutorials/">Tutorials</a></li>
               <li><a href="<%= @getSiteUrl() %>/api/" target="_blank">API Docs</a></li>
               <li><a href="<%= @getSiteUrl() %>/contributing/">Contributing</a></li>

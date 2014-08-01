@@ -48,14 +48,16 @@ layout: default
 
       <div class="instructions span12">
         <p class="steps">2 - Start using AlloyEditor</p>
-        <p class="description">Then initialize AlloyEditor and specify the configuration.</p>
-        <pre><code>var editor = new Y.AlloyEditor({
-    srcNode: '#editable',
-    toolbars: {
-        add: ['image', 'code'],
-        image: ['left', 'right'],
-        styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter']
-    }
+        <p class="description">Load the module, initialize AlloyEditor and specify the configuration.</p>
+        <pre><code>YUI().use('alloy-editor', function(Y) {
+    var editor = new Y.AlloyEditor({
+        srcNode: '#editable',
+        toolbars: {
+            add: ['image', 'code'],
+            image: ['left', 'right'],
+            styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter']
+        }
+    });
 });</code></pre>
       </div>
     </div>
