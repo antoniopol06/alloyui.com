@@ -109,9 +109,9 @@ layout: default
     </div>
 </div>
 
-<link href="<%= @getAssetsUrl() %>/js/alloy-editor/assets/alloy-editor.css" rel="stylesheet"></link>
+<link href="<%= @getAssetsUrl() %>/js/alloy-editor/assets/alloy-editor.css" rel="stylesheet">
 
-<link href="<%= @getAssetsUrl() %>/css/alloy-editor-custom.css" rel="stylesheet"></link>
+<link href="<%= @getAssetsUrl() %>/css/alloy-editor-custom.css" rel="stylesheet">
 
 <script>
     var CKEDITOR_BASEPATH = '<%= @getAssetsUrl() %>/js/alloy-editor/';
