@@ -22,6 +22,15 @@ module.exports = {
         },
 
         /* -----------------------------
+         * AlloyEditor Information
+         */
+
+        alloyeditor: {
+            // AlloyEditor version
+            version: '0.2'
+        },
+
+        /* -----------------------------
          * Site Information
          */
 
@@ -85,7 +94,7 @@ module.exports = {
 
         // Get the download URL for this Alloy version
         getDownloadUrl: function() {
-            return "https://github.com/liferay/alloy-editor/releases/download/" + this.alloy.version + "/alloy-" + this.alloy.version + ".zip";
+            return "https://github.com/liferay/alloy-editor/releases/download/" + "v" + this.alloyeditor.version + "/alloy-editor-" + this.alloyeditor.version + ".zip";
         },
 
         // Get the absolute URL of the website
