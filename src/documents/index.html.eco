@@ -36,18 +36,24 @@ layout: default
     </div>
 
     <div class="row">
+    <div class="instructions span12">
+        <p class="steps">1 - Download AlloyEditor</p>
+        <p class="description">
+        Download AlloyEditor from <a href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">here</a>, then unzip it.
+      </div>
+
       <div class="instructions span12">
-        <p class="steps">1 - Copy and paste</p>
-        <p class="description">First load the seed, CSS and AlloyEditor files.</p>
-        <pre><code>&lt;link href="bootstrap.css" rel="stylesheet"&gt;&lt;/link&gt;
-&lt;link href="alloy-editor/assets/alloy-editor.css" rel="stylesheet"&gt;&lt;/link&gt;
+        <p class="steps">2 - Copy and paste</p>
+        <p class="description">
+        <pre><code>&lt;link href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;alloy-editor/assets/alloy-editor.css&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;script src="<%= @getCdnSeed() %>"&gt;&lt;/script&gt;
 &lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
       </div>
 
 
       <div class="instructions span12">
-        <p class="steps">2 - Start using AlloyEditor</p>
+        <p class="steps">3 - Start using AlloyEditor</p>
         <p class="description">Load the module, initialize AlloyEditor and specify the configuration.</p>
         <pre><code>YUI().use('alloy-editor', function(Y) {
     var editor = new Y.AlloyEditor({
@@ -71,7 +77,7 @@ layout: default
     <div class="row">
       <div class="instructions span12">
         <p class="description">Using YUI3 instead Alloy:</p>
-        <pre><code>&lt;link href="bootstrap.css" rel="stylesheet"&gt;&lt;/link&gt;
+        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;&gt;&lt;/link&gt;
 &lt;link href="alloy-editor/assets/alloy-editor.css" rel="stylesheet"&gt;&lt;/link&gt;
 &lt;script src=&quot;http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
 &lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
@@ -89,15 +95,15 @@ layout: default
 
     <hr>
 
-    <p>Want to <a href="tutorials/toolbar-configuration">customize the toolbars?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/toolbar-configuration">customize the toolbars?</a></p>
 
-    <p>Want to <a href="tutorials/toolbar-configuration#buttons-reordering">reorder, add or remove buttons?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/toolbar-configuration#buttons-reordering">reorder, add or remove buttons?</a></p>
 
-    <p>Want to <a href="tutorials/button">create new Button?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/button">create new Button?</a></p>
 
-    <p>Want to <a href="tutorials/toolbar">create new Toolbar?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/toolbar">create new Toolbar?</a></p>
 
-    <p>Want <a href="tutorials">more</a>?</p>
+    <p>Want <a href="<%= @getSiteUrl() %>/tutorials">more</a>?</p>
 
     <div>
       <h2><a class="btn btn-link link-to-tutorials" href="<%= @getSiteUrl() %>/tutorials/" style="padding-left: 0;">Check the full tutorial &raquo;</a></h2>
