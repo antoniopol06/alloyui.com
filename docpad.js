@@ -40,7 +40,7 @@ module.exports = {
             isLastVersion: true,
 
             // Production URL
-            url: '/alloy-editor',
+            url: '//alloyeditor.com',
 
             // Github branch
             githubUrl: 'https://github.com/liferay/alloy-editor/',
