@@ -76,7 +76,7 @@ Aloy Editor comes with optimized version of CKEditor. Many plugins were removed.
 "extraPlugins" config property is a list with the default plugins from Alloy Editor. However, you can customize these. For example, if you don't want the plugin for adding images via D&D, then just remove "dropimages" from "extraPlugins" property.
 
 <div class="row">
-  <div class="span9 title">
+  <div class="col-md-9 title">
     <p class="call">but that is not everything!</p>
   </div>
 </div>

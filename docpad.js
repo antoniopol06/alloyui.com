@@ -79,7 +79,7 @@ module.exports = {
 
         // Get the Bootstrap CSS file for this Alloy version
         getBootstrapCSS: function() {
-            return "" + this.alloy.cdnDomain + "/" + this.alloy.version + "/aui-css/css/bootstrap.min.css";
+            return this.getAssetsUrl() + "/css/bootstrap.min.css";
         },
 
         // Get the CDN path for this Alloy version

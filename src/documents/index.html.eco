@@ -29,20 +29,20 @@ layout: default
     <div class="editor-demo"></div>
 
     <div class="row">
-      <div class="title span12">
+      <div class="title col-md-12">
         <h3>Get started</h3>
         <p>it’s really easy!</p>
       </div>
     </div>
 
     <div class="row">
-    <div class="instructions span12">
+    <div class="instructions col-md-12">
         <p class="steps">1 - Download AlloyEditor</p>
         <p class="description">
         Download AlloyEditor from <a href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">here</a>, then unzip it.
       </div>
 
-      <div class="instructions span12">
+      <div class="instructions col-md-12">
         <p class="steps">2 - Copy and paste</p>
         <p class="description">
         <pre><code>&lt;link href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
@@ -52,7 +52,7 @@ layout: default
       </div>
 
 
-      <div class="instructions span12">
+      <div class="instructions col-md-12">
         <p class="steps">3 - Start using AlloyEditor</p>
         <p class="description">Load the module, initialize AlloyEditor and specify the configuration.</p>
         <pre><code>YUI().use('alloy-editor', function(Y) {
@@ -75,7 +75,7 @@ layout: default
     <h3>Want to customize the editor? Glad you asked:</h3>
 
     <div class="row">
-      <div class="instructions span12">
+      <div class="instructions col-md-12">
         <p class="description">Using YUI3 instead Alloy:</p>
         <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;&gt;&lt;/link&gt;
 &lt;link href="alloy-editor/assets/alloy-editor.css" rel="stylesheet"&gt;&lt;/link&gt;
@@ -85,7 +85,7 @@ layout: default
     </div>
 
     <div class="row">
-      <div class="instructions span12">
+      <div class="instructions col-md-12">
       <p class="description">Using already existing version of CKEditor, but with our UI:</p>
         <pre><code>&lt;script src=&quot;alloy-editor/ckeditor.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;alloy-editor/alloy-editor-core.js&quot;&gt;&lt;/script&gt;

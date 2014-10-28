@@ -15,14 +15,14 @@ layout: default
   <div class="container">
 
     <div class="row">
-      <div class="title span12">
+      <div class="title col-md-12">
         <h3>Want to help?</h3>
         <p>You may help in many ways</p>
       </div>
    	</div>
 
     <div class="row">
-      <div class="title span12">
+      <div class="title col-md-12">
         <p>
     		<ul><li>Help us to improve the documentation.</li>
     		<li>Create new buttons.</li>
