@@ -7,7 +7,7 @@ title: How to use it?
 type: general
 ---
 
-<h4>1. Add Boostrap 3 and Alloy Editor's CSS to the page.</h4>
+<h4>1. Add Boostrap 3 and AlloyEditor's CSS to the page.</h4>
 
 <pre><code class="html">&lt;link href="bootstrap.css" rel="stylesheet"&gt;&lt;/link&gt;
 &lt;link href="alloy-editor/assets/alloy-editor.css" rel="stylesheet"&gt;&lt;/link&gt;</code></pre>
@@ -73,7 +73,7 @@ Aloy Editor comes with optimized version of CKEditor. Many plugins were removed.
     removePlugins: 'contextmenu,toolbar,elementspath,resize,liststyle,tabletools,link'
 });</code></pre>
 
-"extraPlugins" config property is a list with the default plugins from Alloy Editor. However, you can customize these. For example, if you don't want the plugin for adding images via D&D, then just remove "dropimages" from "extraPlugins" property.
+"extraPlugins" config property is a list with the default plugins from AlloyEditor. However, you can customize these. For example, if you don't want the plugin for adding images via D&D, then just remove "dropimages" from "extraPlugins" property.
 
 <div class="row">
   <div class="col-md-9 title">

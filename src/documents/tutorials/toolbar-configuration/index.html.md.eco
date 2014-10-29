@@ -1,6 +1,6 @@
 ---
 category: Tutorial
-description: Alloy Editor allows you to configure the Toolbars in the way you prefer. You will be able to remove some of the existing Toolbars, to add your own or to reorder the buttons in each Toolbar
+description: AlloyEditor allows you to configure the Toolbars in the way you prefer. You will be able to remove some of the existing Toolbars, to add your own or to reorder the buttons in each Toolbar
 layout: single-doc
 order: 2
 tags: toolbar
