@@ -4,84 +4,39 @@ description: The section below supposes that you are using the default UI, which
 target: user
 layout: single-doc
 order: 1
-title: How to use it?
+title: Getting Started
 type: general
 ---
 
-<h4>1. Add Boostrap 3 and AlloyEditor's CSS to the page.</h4>
+<h4>1 - Download AlloyEditor</h4>
 
-<pre><code class="html">&lt;link href="bootstrap.css" rel="stylesheet"&gt;&lt;/link&gt;
-&lt;link href="alloy-editor/assets/alloy-editor.css" rel="stylesheet"&gt;&lt;/link&gt;</code></pre>
-
-<hr>
-
-<h4>2. Add YUI3 or AlloyUI seed file to the page.</h4>
-
-The line below will add AlloyUI to the page:
-<pre><code class="html">&lt;script src="http://cdn.alloyui.com/2.5.0/aui/aui-min.js"&gt;&lt;/script&gt;</code></pre>
-
-but if you prefer to use YUI3 instead, replace the above with the following:
-
-<pre><code class="html">&lt;script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"&gt;&lt;/script&gt;</code></pre>
+<p class="description">Download AlloyEditor from <a href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">here</a>, then unzip it.</p>
 
 <hr>
 
-<h4>3. Add AlloyEditor file to the page:</h4>
+<h4>2 - Copy and paste</h4>
 
-There are a <strong>few ways</strong> to include the editor on the page. The simplest one is to add the whole editor with all UI on the page, like this:
-
-<pre><code class="html">&lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
-
-If you don't want to load the whole UI, but to let the editor do that for you depending on the toolbar configuration you choose, then you can add only the core part, joined with CKEditor:
-
-<pre><code class="html"><script>
-    var CKEDITOR_BASEPATH = '/alloy-editor/';
-</script>
-
-<script src="alloy-editor/alloy-editor.js"></script></code></pre>
-
-Change the value of CKEDITOR_BASEPATH according to the place where you plan to deploy AlloyEditor.
-
-The third way to add it on the page is to separate CKEditor's code from those of AlloyEditor, like this:
-
-<pre><code class="html">&lt;script src="alloy-editor/ckeditor.js"&gt;&lt;/script&gt;
-&lt;script src="alloy-editor/alloy-editor-core.js"&gt;&lt;/script&gt;</code></pre>
-
-Please note that in this case there is <strong>no need</strong> to specify CKEDITOR_BASEPATH.
+<pre><code>&lt;link href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;alloy-editor/assets/alloy-editor.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src="<%= @getCdnSeed() %>"&gt;&lt;/script&gt;
+&lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
 
 <hr>
 
-<h4>4. Create instances of AlloyEditor and specify the configuration:</h4>
+<h4>3 - Start using AlloyEditor</h4>
 
-<pre><code class="javascript">YUI().use('alloy-editor', function(Y) {
-    var editor = new Y.AlloyEditor({
-        srcNode: '#editable',
-        toolbars: {
-            add: ['image', 'code'],
-            image: ['left', 'right'],
-            styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter']
-        }
-    });
+<p class="description">Load the module, initialize AlloyEditor and specify the configuration.</p>
+<pre><code>YUI().use('alloy-editor', function(Y) {
+  var editor = new Y.AlloyEditor({
+    srcNode: '#editable',
+    toolbars: {
+      add: ['image', 'code'],
+      image: ['left', 'right'],
+      styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter']
+    }
+  });
 });</code></pre>
 
-In the above configuration, "editable" is the ID of the element, which will be made editable. You can fully reconfigure the toolbars, or to remove them entirely. See below for more information.
+<hr>
 
-<pre><code class="javascript">toolbars = {....}</code></pre>
-
-Aloy Editor comes with optimized version of CKEditor. Many plugins were removed. However, if you prefer the OOTB version, then you have to remove some of its plugins, like this:
-
-<pre><code class="javascript">new Y.AlloyEditor({
-    removePlugins: 'contextmenu,toolbar,elementspath,resize,liststyle,tabletools,link'
-});</code></pre>
-
-"extraPlugins" config property is a list with the default plugins from AlloyEditor. However, you can customize these. For example, if you don't want the plugin for adding images via D&D, then just remove "dropimages" from "extraPlugins" property.
-
-<div class="row">
-  <div class="col-md-9 title">
-    <p class="call">but that is not everything!</p>
-  </div>
-</div>
-
-<div class="row">
-  <p style="text-align: center; margin-bottom: 25px;">Go ahead and check the configuration options, or the architecture of the editor using the list on the left.</p>
-</div>
+<p>And that is everything you need to get started!</p>
