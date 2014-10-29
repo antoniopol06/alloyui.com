@@ -68,7 +68,7 @@ layout: default
 
     <% if @document.type == "module": %>
     <div class="alert alert-success">
-        For more information about configuration, check out our <a href="<%= @document.api %>" target="_blank">API Docs</a>.
+        For more information about configuration, check out our <a href="<%= @getSiteUrl() %>/api/classes/<%= @document.api %>.html" target="_blank">API Docs</a>.
     </div>
     <% end %>
 

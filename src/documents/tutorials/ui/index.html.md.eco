@@ -1,4 +1,5 @@
 ---
+api: AlloyEditor
 layout: single-doc
 title: Create entirely new UI
 tags: ui
