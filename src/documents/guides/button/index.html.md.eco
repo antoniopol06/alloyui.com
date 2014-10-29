@@ -1,10 +1,11 @@
 ---
 api: ButtonBase
+target: developer
 layout: single-doc
 title: Create Buttons
 tags: button
 type: module
-category: Tutorial
+category: Guide
 description: If you run the editor with the default UI, which is written in AlloyUI/YUI3, then adding a button will be straightforward. Buttons are standard YUI3 modules, which extend Widget. For your convenience, there is also a base class, which you can extend (ButtonBase). Then, use CKEditor's API to do style the content and that is it!
 ---
 

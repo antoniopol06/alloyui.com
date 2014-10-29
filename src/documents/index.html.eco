@@ -95,18 +95,18 @@ layout: default
 
     <hr>
 
-    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/toolbar-configuration">customize the toolbars?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/guides/toolbar-configuration">customize the toolbars?</a></p>
 
-    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/toolbar-configuration#buttons-reordering">reorder, add or remove buttons?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/guides/toolbar-configuration#buttons-reordering">reorder, add or remove buttons?</a></p>
 
-    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/button">create new Button?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/guides/button">create new Button?</a></p>
 
-    <p>Want to <a href="<%= @getSiteUrl() %>/tutorials/toolbar">create new Toolbar?</a></p>
+    <p>Want to <a href="<%= @getSiteUrl() %>/guides/toolbar">create new Toolbar?</a></p>
 
-    <p>Want <a href="<%= @getSiteUrl() %>/tutorials">more</a>?</p>
+    <p>Want <a href="<%= @getSiteUrl() %>/guides">more</a>?</p>
 
     <div>
-      <h2><a class="btn btn-link link-to-tutorials" href="<%= @getSiteUrl() %>/tutorials/" style="padding-left: 0;">Check the full tutorial &raquo;</a></h2>
+      <h2><a class="btn btn-link link-to-guides" href="<%= @getSiteUrl() %>/guides/" style="padding-left: 0;">Check the full tutorial &raquo;</a></h2>
     </div>
 
     <hr>

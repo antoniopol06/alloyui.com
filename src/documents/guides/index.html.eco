@@ -1,6 +1,7 @@
 ---
-category: Tutorial
+category: Guide
 description: The section below supposes that you are using the default UI, which is built using AlloyUI/YUI3 and Bootstrap. The core of AlloyEditor is fully separated from the UI and creating another UI, based on any other framework, like jQuery, React or using just vanilla JavaScript and CSS is easy.
+target: user
 layout: single-doc
 order: 1
 title: How to use it?

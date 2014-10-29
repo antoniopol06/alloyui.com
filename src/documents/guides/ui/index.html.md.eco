@@ -1,10 +1,11 @@
 ---
 api: AlloyEditor
+target: developer
 layout: single-doc
 title: Create entirely new UI
 tags: ui
 type: module
-category: Tutorial
+category: Guide
 description:
 ---
 

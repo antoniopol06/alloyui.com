@@ -1,6 +1,7 @@
 ---
-category: Tutorial
+category: Guide
 description: How to build a version of AlloyEditor.
+target: developer
 layout: single-doc
 order: 3
 tags: build, release

@@ -141,11 +141,11 @@ module.exports = {
      */
 
     collections: {
-        // Get all tutorials sorted by type & alphabetical order
-        tutorials: function() {
+        // Get all guides sorted by type & alphabetical order
+        guides: function() {
             return this.getCollection("documents").findAllLive({
                 url: {
-                    $startsWith: '/tutorials'
+                    $startsWith: '/guides'
                 }
             }, [{
                 type: 1,
