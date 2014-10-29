@@ -499,6 +499,13 @@ pre {
   float: left;
 }
 
+.title h3 em {
+  font-size: 23px;
+  font-style: italic;
+  font-weight: 300;
+  vertical-align: bottom;
+}
+
 .title p {
   color: #12191d;
   font-size: 23px;
