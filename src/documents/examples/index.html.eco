@@ -153,7 +153,7 @@ layout: default
         var H4 = Y.Base.create('h4', Y.Plugin.Base, [Y.ButtonBase], {
              // There is no icon for H4 right now, but look ma, even a simple text is enough.
              // In production, it would be better to add icon instead raw text.
-            TPL_CONTENT: '<i class="alloy-editor-icon-h4">h4</i>'
+            TPL_CONTENT: '<i class="alloy-editor-icon-h4"></i>'
         }, {
             NAME: 'h4',
 
