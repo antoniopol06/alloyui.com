@@ -212,7 +212,7 @@ pre {
   top: 0;
   right: 0;
   border: 0;
-  z-index: 404;
+  z-index: 1031;
 }
 
 
@@ -230,6 +230,11 @@ pre {
   -moz-box-shadow: 0 2px 3px rgba(0,0,0,.25);
   box-shadow: 0 2px 3px rgba(0, 0, 0, .25);
   *z-index: 402;
+  padding: 0 120px;
+}
+
+@media only screen and (max-width: 1190px) {
+  .navbar { padding: 0; }
 }
 
 .navbar-fixed-top,
