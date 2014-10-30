@@ -9,7 +9,7 @@ layout: default
       <h2>AlloyEditor</h2>
       <h3>Editing made sexy again!</h3>
       <p><%= @site.description %></p>
-      <p>Works on IE7+, Chrome, Firefox and Safari.</p>
+      <p>Works on IE8+, Chrome, Firefox and Safari.</p>
       <a class="bt" id="bt-download" href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">Download</a>
       <a class="bt" id="bt-fork" href="<%= @site.githubUrl %>">Fork</a>
     </div>
