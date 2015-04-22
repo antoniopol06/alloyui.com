@@ -11,110 +11,130 @@ layout: default
   </div>
 </div>
 
-<div id="page-example">
-    <div class="container" id="contentEditable" contenteditable="true" data-placeholder="Write content here">
-        <h3>
-            AlloyEditor - WYSIWYG Editor, build on top of CKEditor.<br>By <a href="http://www.liferay.com">Liferay.</a>
-        </h3>
+<section id="page-example">
+    <div class="popover top sample-hint" id="sampleHint">
+        <div class="arrow"></div>
+        <div class="popover-content">
+            <p>Just click inside the content below and start typing.</p>
+        </div>
+    </div>
 
-        <h4>Editing the content on the fly</h4>
-        <p id="hintTarget">Yes, you can edit this content <strong>right here and right now</strong>. Just select some text and the toolbar for styling will appear. Not only it will appear, but it will appear where you <strong>expect</strong> it - where you release the mouse. If you don't have mouse, but only keyboard, the toolbar will appear where selection starts, or ends.</p>
+    <div class="container" id="contentEditable" contenteditable="true" data-placeholder="Write content here">
+        <h1>
+            AlloyEditor is a WYSIWYG Editor built on top of CKEditor<br>By <a href="http://www.liferay.com">Liferay</a>
+        </h1>
+
+        <h2>Editing the content on the fly</h2>
+        <p id="hintTarget">Yes, you can edit this content <strong>right here and right now</strong>. Just select some text and the toolbar for styling will appear. Not only it will appear, but it will appear where you <strong>expect it</strong>; where you released the mouse. However, if you do it using your keyboard, the toolbar will be positioned right in the middle of the selection.</p>
 
         <img width="527" height="165" src="<%= @getAssetsUrl() %>/img/overview.png">
 
-        <h4>Paste content</h4>
-        <p>You can also paste content <em>directly</em> from web! In most cases, it will work out of the box.</p>
+        <hr>
+        <h2>Paste content</h2>
+        <p>You can also paste content <em>directly</em> from the web! In most cases, it will work out of the box.</p>
 
-        <h4>Drag&Drop images</h4>
+        <hr>
+        <h2>Drag&Drop images</h2>
         <p>Want to <strong>Drag&Drop</strong> images from your Desktop directly to the editor? Nothing easier than this. Try now right here (but keep in mind this requires IE10+, Chrome, Firefox or Safari).</p>
 
-        <h4>
+        <hr>
+        <h2>
             Styling content
-            <img width="295" height="55" src="<%= @getAssetsUrl() %>/img/style.png" style="float: right;">
-        </h4>
-        <p>Currently we have implementation of the following styles:</p>
+            <img width="350" src="<%= @getAssetsUrl() %>/img/style.png" style="float: right;">
+        </h2>
+        <p>Currently we have the following available buttons to apply styles to content:</p>
         <ul>
-            <li>Strong (Bold)</li>
-            <li>Emphasize (Italic)</li>
-            <li>Underline</li>
+            <li>Custom Styles <small><em>(enabled by default)</em></small></li>
+            <li>Bold <small><em>(enabled by default)</em></small></li>
+            <li>Italic <small><em>(enabled by default)</em></small></li>
+            <li>Underline <small><em>(enabled by default)</em></small></li>
+            <li>Code</li>
             <li>Heading Level 1</li>
             <li>Heading Level 2</li>
-            <li>Heading Level 4 <sup>*</sup></li>
+            <li>Lists</li>
+            <li>Paragraph alignment</li>
+            <li>Quote</li>
+            <li>Strike</li>
+            <li>Subscript</li>
+            <li>Superscript</li>
+            <li>Remove Format</li>
+            <li>Marquee <strong>*</strong></li>
         </ul>
 
         <p class="headingsNote">
             <sup>*</sup>
-            <em>Please note that the button for Heading Level 4 style has been added especially for this page!
+            <em>Note that the button for Marquee has been added especially for this demo! Check the implementation below... you wouldn't believe how easy it was!
             </em>
         </p>
 
-        <h4>
+        <hr>
+        <h2>
             Adding content
-            <img width="381" height="220" src="<%= @getAssetsUrl() %>/img/add.png" style="float: right;">
-        </h4>
+            <img width="350" src="<%= @getAssetsUrl() %>/img/add.png" style="float: right;">
+        </h2>
         <p>Editing is good, but what about adding content? Well, right now you can:
             <ul>
-                <li>Insert images</li>
-                <li>Add links</li>
-                <li>Send tweets</li>
+                <li>Add links <em>(enabled by default)</em></li>
+                <li>Add Twitter links <em>(enabled by default)</em></li>
+                <li>Insert images <em>(enabled by default)</em></li>
+                <li>Capture pictures</li>
+                <li>Insert Horizontal lines <em>(enabled by default)</em></li>
+                <li>Insert Tables <em>(enabled by default)</em></li>
             </ul>
         </p>
 
-        <h4>Browser support</h4>
-        <p>AlloyEditor runs on IE8+, Chrome, Firefox and Safari.</p>
+        <hr>
+        <h2>Browser support</h2>
+        <p>AlloyEditor runs on IE9+, Chrome, Firefox and Safari.</p>
 
-        <h4>Want to help us?</h4>
-        <p>We are not ready. There is more work to do and if you are developer, you are welcome to contribute code. We need to create more buttons, more toolbars, and why not to create another UI layer, not based on YUI/AlloyUI?</p>
+        <hr>
+        <h2>Want to help us?</h2>
+        <p>We are not ready yet. There is more work to do and if you are developer, you are welcome to contribute code. We need to create more buttons, more toolbars, and why not to create another UI layer, not based on React?</p>
 
-        <p>If you want to use the editor, go ahead. However, don't forget to send us some feedback. That's everything we need.</p>
+        <p>If you want to use the editor, go ahead. However, don't forget to send us some feedback. That's everything we need!</p>
     </div>
 
-    <hr>
-
     <div class="container">
-        <p id="addNewButton">P.S. Do you know that H4 button, which you probably used to add/remove Headings Level 4 (H4 styling), like <strong>"Editing the content on the fly"</strong> was especially added for this page? It does not exists as default button in AlloyEditor. However, adding a new button is extremely easy. Here is the code of H4 button:</p>
+        <p id="addNewButton">P.S. Do you know that the Marquee button, which you probably used to have fun with the demo was especially added for this page? It does not exist as a default button in AlloyEditor. However, adding a new button is extremely easy. Here is the code for it:</p>
 
         <div id="h4CodeContainer" class="container">
-        <pre><code>YUI.add('button-h4', function(Y) {
-        'use strict';
+        <pre><code>var ButtonMarquee = React.createClass({
+    mixins: [AlloyEditor.ButtonStyle, AlloyEditor.ButtonStateClasses, AlloyEditor.ButtonActionStyle],
 
-        var Lang = Y.Lang;
+    propTypes: {
+        editor: React.PropTypes.object.isRequired
+    },
 
-        var H4 = Y.Base.create('h4', Y.Plugin.Base, [Y.ButtonBase], {
-             // There is no icon for H4 right now, but look ma, even a simple text is enough.
-             // In production, it would be better to add icon instead raw text.
-            TPL_CONTENT: '<i class="alloy-editor-icon-h4">h4</i>'
-        }, {
-            NAME: 'h4',
-
-            NS: 'h4',
-
-            ATTRS: {
-                element: {
-                    validator: Lang.isString,
-                    value: 'h4'
-                }
+    getDefaultProps: function() {
+        return {
+            style: {
+                element: 'marquee'
             }
-        });
+        };
+    },
 
-        Y.ButtonH4 = H4;
+    statics: {
+        key: 'marquee'
+    },
 
-    }, '', {
-        requires: ['button-base']
-    });</code></pre>
+    render: function() {
+        var cssClass = 'alloy-editor-button ' + this.getStateClasses();
+
+        return (
+            <button className={cssClass} data-type="button-marquee" onClick={this.applyStyle} tabIndex={this.props.tabIndex}>
+                <span className="alloy-editor-icon-separator"></span>
+            </button>
+        );
+    }
+});
+
+AlloyEditor.Buttons[ButtonMarquee.key] = AlloyEditor.ButtonMarquee = ButtonMarquee;</code></pre>
 
     <p>And then we used it just like this:</p>
 
-    <pre><code>YUI().use('alloy-editor', 'button-h4', function(Y) {
-        var editor = new Y.AlloyEditor({
-            srcNode: '#contentEditable',
-            toolbars: {
-                add: ['image'],
-                image: ['left', 'right'],
-                styles: ['strong', 'em', 'u', 'h1', 'h2', 'h4', 'a', 'twitter']
-            }
-        });
-    });</code></pre>
+    <pre><code>AlloyEditor.Selections[2].buttons.push('marquee');
+
+AlloyEditor.editable('contentEditable');</code></pre>
         </div>
     </div>
 
@@ -134,79 +154,71 @@ layout: default
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
-</div>
+</section>
 
-<link href="<%= @getAssetsUrl() %>/js/alloy-editor/assets/alloy-editor-dark.css" rel="stylesheet">
+<link href="<%= @getAssetsUrl() %>/js/alloy-editor/assets/alloy-editor-ocean.css" rel="stylesheet">
+
+<script src="<%= @getAssetsUrl() %>/js/alloy-editor/alloy-editor-all-min.js"></script>
 
 <script>
-    var CKEDITOR_BASEPATH = '<%= @getAssetsUrl() %>/js/alloy-editor/';
-</script>
+    var ButtonMarquee = React.createClass({
+        mixins: [AlloyEditor.ButtonStyle, AlloyEditor.ButtonStateClasses, AlloyEditor.ButtonActionStyle],
 
-<script src="<%= @getAssetsUrl() %>/js/alloy-editor/alloy-editor-all.js"></script>
+        displayName: 'ButtonMarquee',
 
-<script id="buttonH4">
-    YUI.add('button-h4', function(Y) {
-        'use strict';
+        propTypes: {
+            editor: React.PropTypes.object.isRequired
+        },
 
-        var Lang = Y.Lang;
-
-        var H4 = Y.Base.create('h4', Y.Plugin.Base, [Y.ButtonBase], {
-             // There is no icon for H4 right now, but look ma, even a simple text is enough.
-             // In production, it would be better to add icon instead raw text.
-            TPL_CONTENT: '<i class="alloy-editor-icon-h4"></i>'
-        }, {
-            NAME: 'h4',
-
-            NS: 'h4',
-
-            ATTRS: {
-                element: {
-                    validator: Lang.isString,
-                    value: 'h4'
+        getDefaultProps: function() {
+            return {
+                style: {
+                    element: 'marquee'
                 }
-            }
-        });
+            };
+        },
 
-        Y.ButtonH4 = H4;
+        statics: {
+            key: 'marquee'
+        },
 
-    }, '', {
-        requires: ['button-base']
+        render: function() {
+            var cssClass = 'alloy-editor-button ' + this.getStateClasses();
+
+            return (
+                React.createElement(
+                    'button',
+                    {
+                        className: cssClass,
+                        'data-type': 'button-marquee',
+                        onClick: this.applyStyle,
+                        tabIndex: this.props.tabIndex
+                    },
+                    React.createElement(
+                        'span',
+                        {
+                            className: 'alloy-editor-icon-separator'
+                        }
+                    )
+                )
+            );
+        }
     });
+
+    AlloyEditor.Buttons[ButtonMarquee.key] = AlloyEditor.ButtonMarquee = ButtonMarquee;
 </script>
 
 <script>
-    YUI().use('alloy-editor', 'button-h4', 'aui-popover', 'widget-anim', function(Y) {
-        var contentEditableNode = Y.one('#contentEditable');
+    var contentEditable = document.getElementById('contentEditable');
 
-        function destroyPopover() {
-            popoverAnim.destroy();
-        }
+    var destroyPopover = function() {
+        document.getElementById('sampleHint').remove();
+        contentEditable.removeEventListener('focus', destroyPopover);
+    };
 
-        var popoverAnim = new Y.Popover({
-            align: {
-                node: '#hintTarget',
-                points: [Y.WidgetPositionAlign.BC, Y.WidgetPositionAlign.TC]
-            },
-            bodyContent: 'Just click inside the content below and start typing.',
-            cssClass: 'sample-hint',
-            id: 'sampleHint',
-            plugins: [Y.Plugin.WidgetAnim],
-            position: 'top',
-            render: true,
-            zIndex: 402
-        });
+    contentEditable.addEventListener('focus', destroyPopover);
 
-        contentEditableNode.once('focus', destroyPopover);
+    AlloyEditor.Selections[2].buttons.push('marquee');
 
-        popoverAnim.get('boundingBox').once('click', destroyPopover);
-
-        var editor = new Y.AlloyEditor({
-            srcNode: '#contentEditable',
-            toolbars: {
-                add: ['image'],
-                image: ['left', 'right'],
-                styles: ['strong', 'em', 'u', 'h1', 'h2', 'h4', 'a', 'twitter']
-            }
-        });
-    });
+    AlloyEditor.editable('contentEditable', {});
 </script>

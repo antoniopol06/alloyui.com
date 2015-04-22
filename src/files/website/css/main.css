@@ -547,13 +547,24 @@ pre {
 }
 
 .popover.sample-hint {
+  background-color: #a30e16;
   color: #fff;
-  background-color: #2bb2e4;
+  display: block;
   font-size: 14px;
+  left: 700px;
+  max-width: 400px;
+  text-align: center;
+  top: 300px;
+  width: 400px;
+  z-index: 400;
 }
 
 .popover.sample-hint .arrow::after {
-  border-top-color: #2bb2e4;
+  border-top-color: #a30e16;
+}
+
+.popover.sample-hint .popover-content p {
+  margin-bottom: 0;
 }
 
 .headingsNote {
@@ -800,12 +811,14 @@ pre {
   height: 90px;
 }
 
-/* AlloyEditor */
-.alloy-editor-toolbar {
-  font-size: 14px;
-  line-height: 1;
+/* Editor Demo */
+#contentEditable {
+  border: dotted 1px #ccc;
+  border-width: 0 1px;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 
-.alloy-editor-toolbar .link-wrapper .input-wrapper .input-container {
-  margin: 5px;
+#contentEditable img {
+  border: solid 1px #e6f1fa;
 }
