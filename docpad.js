@@ -27,7 +27,7 @@ module.exports = {
 
         alloyeditor: {
             // AlloyEditor version
-            version: '0.2.5'
+            version: '0.2.6'
         },
 
         /* -----------------------------
@@ -36,7 +36,7 @@ module.exports = {
 
         site: {
             // Website version
-            version: '2.5.x',
+            version: '2.6.x',
             isLastVersion: true,
 
             // Production URL

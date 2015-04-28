@@ -9,7 +9,7 @@ category: Guide
 description:
 ---
 
-You don't like AlloyUI/YUI3? You prefer jQuery? Or you are JavaScript ninja and prefer writing vanilla JS? Welcome on board.
+You don't like React? You prefer jQuery? Or you are JavaScript ninja and prefer writing vanilla JS? Welcome on board.
 To create a new UI is straightforward task:
 - Fork the repository, build and prepare it. See above for more information how to.
 - Create a new directory under ````src/ui````, let's say ````jquery````.

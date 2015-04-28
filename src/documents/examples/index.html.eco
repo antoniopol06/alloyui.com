@@ -333,5 +333,5 @@ AlloyEditor.editable('contentEditable');</code></pre>
         }
     });
 
-    AlloyEditor.editable('contentEditable', {});
+    AlloyEditor.editable('contentEditable');
 </script>

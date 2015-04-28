@@ -6,107 +6,82 @@ title: Create Buttons
 tags: button
 type: module
 category: Guide
-description: If you run the editor with the default UI, which is written in AlloyUI/YUI3, then adding a button will be straightforward. Buttons are standard YUI3 modules, which extend Widget. For your convenience, there is also a base class, which you can extend (ButtonBase). Then, use CKEditor's API to do style the content and that is it!
+description: If you run the editor with the default UI, which is written in React, then adding a button will be straightforward. Buttons are standard React classes. For your convenience, there is also a number of mixins, which you can use that provide basic functionality out of the box. Then, use CKEditor's API to do style the content and that is it!
 ---
 
-For example, if you want to add a button, which posts the selected text to Facebook, create a YUI3 module, let's say Y.ButtonFacebook and load it on the page.
+For example, if you want to add a button that creates links to share content to Facebook, create a React class, let's say ButtonFacebook and load it on the page.
 Then, add it to the configuration of the toolbar, like this:
 
 ````javascript
-styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter', 'facebook']
+buttons: ['styles', 'bold', 'italic', 'underline', 'link', 'twitter', 'facebook']
 ````
 
 Of course, the buttons accept configuration parameters, so you can do this with your button:
 
 ````javascript
-styles: [
-    'strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter', 'facebook': {
-        customParam: 'param1',
-        customParam2: 'param2'
+var buttons = [
+    'styles', 'bold', 'italic', 'underline', 'link', 'twitter',
+    {
+        name: 'facebook',
+        cfg: {
+            href: 'www.alloyeditor.com',
+            layout: 'icon_link'
+        }
     }
 ];
 ````
 
-You may overwrite any of the params of the default buttons, just by passing such config object.
-
-And then, add the configuration of styles toolbar to the toolbars attribute:
-
-````javascript
-toolbars: {
-    styles: [
-        'facebook': {
-            customParam: 'param1',
-            customParam2: 'param2'
-        }
-    ];
-}
-````
-
 #### Full example of creating a new button.
-Here is an example how can you create a button which handles H3 styling of an selection:
+Here is an example how can you create a button which converts the current selection into a marquee:
 
 ````javascript
-YUI.add('button-h3', function(Y) {
-    'use strict';
+var ButtonMarquee = React.createClass({
+    mixins: [AlloyEditor.ButtonStyle, AlloyEditor.ButtonStateClasses, AlloyEditor.ButtonActionStyle],
 
-    var Lang = Y.Lang;
+    propTypes: {
+        editor: React.PropTypes.object.isRequired
+    },
 
-    /**
-     * The ButtonH3 class provides functionality for applying HTML heading, level 3
-     * to the selection.
-     *
-     * @class ButtonH3
-     */
-    var H3 = Y.Base.create('h3', Y.Plugin.Base, [Y.ButtonBase], {
-        TPL_CONTENT: '<i class="alloy-editor-icon-h3"></i>' // the content of the button - if could be text or an icon
-    }, {
-        NAME: 'h3',
-
-        NS: 'h3',
-
-        ATTRS: {
-            /**
-             * Specifies the element (style) which this button handles.
-             *
-             * @attribute element
-             * @default 'h3'
-             * @type String
-             */
-            element: {
-                validator: Lang.isString,
-                value: 'h3'
+    getDefaultProps: function() {
+        return {
+            style: {
+                element: 'marquee'
             }
-        }
-    });
+        };
+    },
 
-    Y.ButtonH3 = H3;
+    statics: {
+        key: 'marquee'
+    },
 
-}, '', {
-    requires: ['button-base']
-});
-````
+    render: function() {
+        var cssClass = 'alloy-editor-button ' + this.getStateClasses();
 
-Then, you have to add it to the configuration of the Toolbar where you want to use it. Buttons, which handle styles make sense to be added to styles toolbar:
-````javascript
-toolbars: {
-    styles: ['strong', 'em', 'u', 'h1', 'h2', 'h3', 'a', 'twitter', 'facebook']
-}
-````
-
-In this case H3 button will appear after H2 button.
-
-If course, the JavaScript file, which contains the code of the button, should be added on the page. You have two options here:
-- to add this file to the page in the way you prefer. Add another ```` <script> ```` element, or join this file among your other files.
-- To use AlloyUI/YUI3. If you use the default UI, which uses AlloyUI/YUI3, you will be able to get the benefits of the [Loader](http://yuilibrary.com/yui/docs/api/classes/Loader.html). Add a bit of JavaScript and register your button to the current YUI instance, like this:
-
-````javascript
-YUI.applyConfig({
-    modules: {
-        'button-h3': {
-            fullpath: './button-h3.js'
-        }
+        return (
+            <button className={cssClass} data-type="button-marquee" onClick={this.applyStyle} tabIndex={this.props.tabIndex}>
+                <span className="alloy-editor-icon-separator"></span>
+            </button>
+        );
     }
 });
+
+AlloyEditor.Buttons[ButtonMarquee.key] = AlloyEditor.ButtonMarquee = ButtonMarquee;
 ````
 
-See YUI3 [documentation](http://yuilibrary.com/yui/docs/api/classes/YUI.html#method_applyConfig) for more information.
+Then, you have to add it to the configuration of the Toolbar where you want to use it. Buttons, which handle styles are usually used within the Styles Toolbar, inside a text-like selection:
+````javascript
+var toolbars = [
+    styles: {
+        selections: [{
+            name: 'text',
+            buttons: ['styles', 'bold', 'italic', 'underline', 'link', 'twitter', 'marquee'],
+            test: AlloyEditor.SelectionTest.text
+        }],
+        tabIndex: 1
+    }
+]
+````
+
+In this case the Marquee button will appear after Twitter one, last on the toolbar.
+
+If course, the JavaScript file, which contains the code of the button, should be added on the page. You have two options here; add another ```` <script> ```` element, or join this file among your other files.

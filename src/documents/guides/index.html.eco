@@ -1,6 +1,6 @@
 ---
 category: Guide
-description: The section below supposes that you are using the default UI, which is built using AlloyUI/YUI3 and Bootstrap. The core of AlloyEditor is fully separated from the UI and creating another UI, based on any other framework, like jQuery, React or using just vanilla JavaScript and CSS is easy.
+description: The section below supposes that you are using the default UI, which is built using React. The core of AlloyEditor is fully separated from the UI and creating another UI, based on any other framework, like jQuery, Angular or using just vanilla JavaScript and CSS is easy.
 target: user
 layout: single-doc
 order: 1
@@ -16,26 +16,15 @@ type: general
 
 <h4>2 - Copy and paste</h4>
 
-<pre><code>&lt;link href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;link href=&quot;alloy-editor/assets/alloy-editor.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;script src="<%= @getCdnSeed() %>"&gt;&lt;/script&gt;
+<pre><code class="html">&lt;link href=&quot;alloy-editor/assets/alloy-editor-ocean.css&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
 
 <hr>
 
 <h4>3 - Start using AlloyEditor</h4>
 
-<p class="description">Load the module, initialize AlloyEditor and specify the configuration.</p>
-<pre><code>YUI().use('alloy-editor', function(Y) {
-  var editor = new Y.AlloyEditor({
-    srcNode: '#editable',
-    toolbars: {
-      add: ['image', 'code'],
-      image: ['left', 'right'],
-      styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter']
-    }
-  });
-});</code></pre>
+<p class="description">Invoke the <code>editable</code> static method on AlloyEditor passing the id of the node you want to edit.</p>
+<pre><code>AlloyEditor.editable('myContentEditable');</code></pre>
 
 <hr>
 
