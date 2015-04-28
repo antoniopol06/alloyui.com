@@ -32,7 +32,7 @@ layout: default
 
     <p>Well, thats what we did. We removed the default UI of CKEditor. As any modern editor, AlloyEditor places the toolbar just above the selection. AlloyEditor actually goes a step forward in this direction and it shows the toolbars in the most appropriate position. That might be where user releases the mouse after he finishes the selection, or just where selection begins or ends.</p>
 
-    <p>AlloyEditor supports multiple toolbars, and super easy toolbar configuration. Adding buttons is also very easy and not only that, but you can add them on the fly! The core is fully separated from the UI, so you can create and add your own UI if you want. The default UI is built using YUI3, but you can create one using your favorite UI framework or just using vanilla JavaScript.</p>
+    <p>AlloyEditor supports multiple toolbars, and super easy toolbar configuration. Adding buttons is also very easy and not only that, but you can add them on the fly! The core is fully separated from the UI, so you can create and add your own UI if you want. The default UI is built using <a href="https://facebook.github.io/react/index.html">React</a>, but you can create one using your favorite UI framework or just using vanilla JavaScript.</p>
 
     <p>On top of that, AlloyEditor also offers some plugins. One of them is a plugin, which allows Drag&Drop of images directly in the editor. Another one is placeholder plugin, which works just as the standard placeholder HTML5 attribute, but it also allows specifying a class to be added when there is no value in the editor's area.</p>
 
