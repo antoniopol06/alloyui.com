@@ -1,0 +1,22 @@
+---
+button_example: button-tablecol
+
+category: Features
+index: true
+intro: Easily add and remove columns inside a table with this button.
+layout: feature
+title: Table - Columns
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'table',
+					buttons: ['tableColumn'],
+					test: AlloyEditor.SelectionTest.table
+				}
+			]
+		}
+	}
+});</code>

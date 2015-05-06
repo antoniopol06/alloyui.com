@@ -155,10 +155,10 @@ module.exports = {
         },
 
         // Get all examples sorted by category & alphabetical order
-        examples: function() {
+        features: function() {
             return this.getCollection("documents").findAllLive({
                 url: {
-                    $startsWith: '/examples'
+                    $startsWith: '/features'
                 }
             }, [{
                 category: 1,

@@ -1,0 +1,22 @@
+---
+button_example: button-imagealignleft
+
+category: Features
+index: true
+intro: Use this button if you need to align an image to the left of the text.
+layout: feature
+title: Image Alignment - Left
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'image',
+					buttons: ['imageLeft'],
+					test: AlloyEditor.SelectionTest.image
+				}
+			]
+		}
+	}
+});</code>

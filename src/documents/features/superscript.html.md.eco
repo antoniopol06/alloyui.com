@@ -1,0 +1,22 @@
+---
+button_example: button-superscript
+
+category: Features
+index: true
+intro: You might to be a mathematician if you need this button to exponentiate a base.
+layout: feature
+title: Superscript
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'text',
+					buttons: ['superscript'],
+					test: AlloyEditor.SelectionTest.text
+				}
+			]
+		}
+	}
+});</code>

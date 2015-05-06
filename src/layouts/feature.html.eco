@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<div class="container">
+  <div class="col-xs-9">
+    <h1 class="feature-header"><%= @document.title %></h1>
+
+    <% for example in @getCollection("features").toJSON(): %>
+      <% if example.tag == @document.tag: %>
+        <% if example.title == @document.title: %>
+          <p class="feature-lead"><%= @document.intro %></p>
+
+          <div class="feature-example">
+            <img class="center-block feature-demo" src="<%= @getAssetsUrl() %>/img/example-<%= @document.button_example %>.gif"></img>
+          </div>
+          <div class="zero-clipboard">
+            <span class="btn-clipboard">Copy</span>
+          </div>
+          <pre>
+            <%- @content %>
+          </pre>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'alloyui';
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+
+  <div class="col-xs-3">
+    <nav class="ae-docs-sidebar">
+      <ul class="nav ae-docs-sidenav">
+        <% for example in @getCollection("features").toJSON(): %>
+          <% if example.category && example.index: %>
+            <li<% if example.title == @document.title: %> class="active"<% end %>>
+              <a href="<%= @getSiteUrl() %><%= example.url %>"><%= example.title %></a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>

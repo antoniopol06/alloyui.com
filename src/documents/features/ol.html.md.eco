@@ -1,0 +1,22 @@
+---
+button_example: button-ol
+
+category: Features
+index: true
+intro: Need an ordered list? Easily turn paragraphs into list items with this button.
+layout: feature
+title: Lists (Numbered)
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'text',
+					buttons: ['ol'],
+					test: AlloyEditor.SelectionTest.text
+				}a
+			]
+		}
+	}
+});</code>

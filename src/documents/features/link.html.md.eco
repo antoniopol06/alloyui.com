@@ -1,0 +1,22 @@
+---
+button_example: button-link
+
+category: Features
+index: true
+intro: Use this button to highlight important content.
+layout: feature
+title: Link
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'link',
+					buttons: ['linkEdit'],
+					test: AlloyEditor.SelectionTest.link
+				}
+			]
+		}
+	}
+});</code>

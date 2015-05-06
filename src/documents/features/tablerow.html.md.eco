@@ -1,0 +1,22 @@
+---
+button_example: button-tablerow
+
+category: Features
+index: true
+intro: Easily add and remove rows inside a table with this button.
+layout: feature
+title: Table - Rows
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'table',
+					buttons: ['tableRow'],
+					test: AlloyEditor.SelectionTest.table
+				}
+			]
+		}
+	}
+});</code>

@@ -51,7 +51,7 @@ layout: default
         <li class="active">
           <a href="#">Introduction</a>
         </li>
-        <% for example in @getCollection("examples").toJSON(): %>
+        <% for example in @getCollection("features").toJSON(): %>
           <% if example.tags == @document.tags: %>
             <li><a href="<%= @getSiteUrl() %><%= example.url %>"><%= example.title %></a></li>
           <% end %>

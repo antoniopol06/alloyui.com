@@ -1,0 +1,16 @@
+---
+button_example: button-hline
+
+category: Features
+index: true
+intro: Draw the line - horizontal - with this button.
+layout: feature
+title: Horizontal Line
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		add: {
+			buttons: ['hline']
+		}
+	}
+});</code>

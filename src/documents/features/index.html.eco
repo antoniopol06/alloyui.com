@@ -1,0 +1,10 @@
+---
+button_example: button-example
+
+category: Features
+index: false
+intro: Intro to the amazing Features.
+layout: feature
+title: So many features!
+---
+<code class="javascript">AlloyEditor.editable('myContentEditable');</code>

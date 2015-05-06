@@ -1,0 +1,22 @@
+---
+button_example: button-underline
+
+category: Features
+index: true
+intro: Use this button to underline important content.
+layout: feature
+title: Underline
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'text',
+					buttons: ['underline'],
+					test: AlloyEditor.SelectionTest.text
+				}
+			]
+		}
+	}
+});</code>

@@ -1,0 +1,22 @@
+---
+button_example: button-ol
+
+category: Features
+index: true
+intro: Use this button to turn paragraphs into unordered list items.
+layout: feature
+title: Lists (Bulleted)
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'text',
+					buttons: ['ul'],
+					test: AlloyEditor.SelectionTest.text
+				}a
+			]
+		}
+	}
+});</code>

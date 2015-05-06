@@ -1,0 +1,22 @@
+---
+button_example: button-paragraphalignjustify
+
+category: Features
+index: true
+intro: Do you hate mismatching lines? Use this button to justify your text content!
+layout: feature
+title: Text Alignment - Justified
+---
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'text',
+					buttons: ['paragraphJustify'],
+					test: AlloyEditor.SelectionTest.text
+				}
+			]
+		}
+	}
+});</code>

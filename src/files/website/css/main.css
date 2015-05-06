@@ -1,148 +1,212 @@
-/* Monokai Syntax Highlight */
+/**
+ * GitHub Gist Theme
+ * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
+ */
 
-pre {
-  border: 0;
-  padding: 0;
-}
-
-code {
-  color: #3A87AD;
-  padding: 2px 4px;
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
-}
-
-pre code {
-  overflow: auto;
+.hljs {
   display: block;
   padding: 0.5em;
-  background: #272822;
-  white-space: pre;
-  word-break: normal;
-  word-wrap: normal;
-}
-
-.hljs {
-  display: block; padding: 0.5em;
-  background: #272822;
-}
-
-.hljs-tag,
-.hljs-tag .hljs-title,
-.hljs-keyword,
-.hljs-literal,
-.hljs-strong,
-.hljs-change,
-.hljs-winutils,
-.hljs-flow,
-.lisp .hljs-title,
-.clojure .hljs-built_in,
-.nginx .hljs-title,
-.tex .hljs-special {
-  color: #F92672;
-}
-
-.hljs {
-  color: #DDD;
-}
-
-.hljs .hljs-constant,
-.asciidoc .hljs-code {
-    color: #66D9EF;
-}
-
-.hljs-code,
-.hljs-class .hljs-title,
-.hljs-header {
-    color: white;
-}
-
-.hljs-link_label,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-symbol .hljs-string,
-.hljs-value,
-.hljs-regexp {
-    color: #BF79DB;
-}
-
-.hljs-link_url,
-.hljs-tag .hljs-value,
-.hljs-string,
-.hljs-bullet,
-.hljs-subst,
-.hljs-title,
-.hljs-emphasis,
-.haskell .hljs-type,
-.hljs-preprocessor,
-.hljs-pragma,
-.ruby .hljs-class .hljs-parent,
-.hljs-built_in,
-.sql .hljs-aggregate,
-.django .hljs-template_tag,
-.django .hljs-variable,
-.smalltalk .hljs-class,
-.hljs-javadoc,
-.django .hljs-filter .hljs-argument,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
-.hljs-addition,
-.hljs-stream,
-.hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
-.tex .hljs-command,
-.hljs-prompt {
-  color: #A6E22E;
+  color: #333333;
+  overflow-x: auto;
+  -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
-.java .hljs-annotation,
-.smartquote,
-.hljs-blockquote,
-.hljs-horizontal_rule,
-.python .hljs-decorator,
-.hljs-template_comment,
-.hljs-pi,
-.hljs-doctype,
-.hljs-deletion,
-.hljs-shebang,
+.bash .hljs-shebang,
+.java .hljs-javadoc,
+.javascript .hljs-javadoc {
+  color: #969896;
+}
+
+.hljs-string,
 .apache .hljs-sqbracket,
-.tex .hljs-formula {
-  color: #75715E;
+.coffeescript .hljs-subst,
+.coffeescript .hljs-regexp,
+.cpp .hljs-preprocessor,
+.c .hljs-preprocessor,
+.javascript .hljs-regexp,
+.json .hljs-attribute,
+.makefile .hljs-variable,
+.markdown .hljs-value,
+.markdown .hljs-link_label,
+.markdown .hljs-strong,
+.markdown .hljs-emphasis,
+.markdown .hljs-blockquote,
+.nginx .hljs-regexp,
+.nginx .hljs-number,
+.objectivec .hljs-preprocessor .hljs-title,
+.perl .hljs-regexp,
+.php .hljs-regexp,
+.xml .hljs-value,
+.less .hljs-built_in,
+.scss .hljs-built_in {
+  color: #df5000;
 }
 
 .hljs-keyword,
-.hljs-literal,
-.css .hljs-id,
-.hljs-phpdoc,
-.hljs-title,
-.hljs-header,
-.haskell .hljs-type,
-.vbscript .hljs-built_in,
-.sql .hljs-aggregate,
-.rsl .hljs-built_in,
-.smalltalk .hljs-class,
-.diff .hljs-header,
-.hljs-chunk,
-.hljs-winutils,
-.bash .hljs-variable,
+.css .hljs-at_rule,
+.css .hljs-important,
+.http .hljs-request,
+.ini .hljs-setting,
+.java .hljs-javadoctag,
+.javascript .hljs-tag,
+.javascript .hljs-javadoctag,
+.nginx .hljs-title,
+.objectivec .hljs-preprocessor,
+.php .hljs-phpdoc,
+.sql .hljs-built_in,
+.less .hljs-tag,
+.less .hljs-at_rule,
+.scss .hljs-tag,
+.scss .hljs-at_rule,
+.scss .hljs-important,
+.stylus .hljs-at_rule,
+.go .hljs-typename,
+.swift .hljs-preprocessor {
+  color: #a71d5d;
+}
+
+.apache .hljs-common,
+.apache .hljs-cbracket,
+.apache .hljs-keyword,
+.bash .hljs-literal,
+.bash .hljs-built_in,
+.coffeescript .hljs-literal,
+.coffeescript .hljs-built_in,
+.coffeescript .hljs-number,
+.cpp .hljs-number,
+.cpp .hljs-built_in,
+.c .hljs-number,
+.c .hljs-built_in,
+.cs .hljs-number,
+.cs .hljs-built_in,
+.css .hljs-attribute,
+.css .hljs-hexcolor,
+.css .hljs-number,
+.css .hljs-function,
+.http .hljs-literal,
+.http .hljs-attribute,
+.java .hljs-number,
+.javascript .hljs-built_in,
+.javascript .hljs-literal,
+.javascript .hljs-number,
+.json .hljs-number,
+.makefile .hljs-keyword,
+.markdown .hljs-link_reference,
+.nginx .hljs-built_in,
+.objectivec .hljs-literal,
+.objectivec .hljs-number,
+.objectivec .hljs-built_in,
+.php .hljs-literal,
+.php .hljs-number,
+.python .hljs-number,
+.ruby .hljs-prompt,
+.ruby .hljs-constant,
+.ruby .hljs-number,
+.ruby .hljs-subst .hljs-keyword,
+.ruby .hljs-symbol,
+.sql .hljs-number,
+.puppet .hljs-function,
+.less .hljs-number,
+.less .hljs-hexcolor,
+.less .hljs-function,
+.less .hljs-attribute,
+.scss .hljs-preprocessor,
+.scss .hljs-number,
+.scss .hljs-hexcolor,
+.scss .hljs-function,
+.scss .hljs-attribute,
+.stylus .hljs-number,
+.stylus .hljs-hexcolor,
+.stylus .hljs-attribute,
+.stylus .hljs-params,
+.go .hljs-built_in,
+.go .hljs-constant,
+.swift .hljs-built_in,
+.swift .hljs-number {
+  color: #0086b3;
+}
+
 .apache .hljs-tag,
-.tex .hljs-special,
-.hljs-request,
-.hljs-status {
+.cs .hljs-xmlDocTag,
+.css .hljs-tag,
+.xml .hljs-title,
+.stylus .hljs-tag {
+  color: #63a35c;
+}
+
+.bash .hljs-variable,
+.cs .hljs-preprocessor,
+.cs .hljs-preprocessor .hljs-keyword,
+.css .hljs-attr_selector,
+.css .hljs-value,
+.ini .hljs-value,
+.ini .hljs-keyword,
+.javascript .hljs-tag .hljs-title,
+.makefile .hljs-constant,
+.nginx .hljs-variable,
+.xml .hljs-tag,
+.scss .hljs-variable {
+  color: #333333;
+}
+
+.bash .hljs-title,
+.coffeescript .hljs-title,
+.cpp .hljs-title,
+.c .hljs-title,
+.cs .hljs-title,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo,
+.ini .hljs-title,
+.java .hljs-title,
+.javascript .hljs-title,
+.makefile .hljs-title,
+.objectivec .hljs-title,
+.perl .hljs-sub,
+.php .hljs-title,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .hljs-parent,
+.ruby .hljs-title,
+.xml .hljs-attribute,
+.puppet .hljs-title,
+.less .hljs-id,
+.less .hljs-pseudo,
+.less .hljs-class,
+.scss .hljs-id,
+.scss .hljs-pseudo,
+.scss .hljs-class,
+.stylus .hljs-class,
+.stylus .hljs-id,
+.stylus .hljs-pseudo,
+.stylus .hljs-title,
+.swift .hljs-title,
+.diff .hljs-chunk {
+  color: #795da3;
+}
+
+.coffeescript .hljs-reserved,
+.coffeescript .hljs-attribute {
+  color: #1d3e81;
+}
+
+.diff .hljs-chunk {
   font-weight: bold;
 }
 
-.coffeescript .javascript,
-.tex .hljs-formula,
-.xml .javascript,
-.xml .vbscript,
-.xml .css,
-.xml .hljs-cdata {
-  opacity: 0.5;
+.diff .hljs-addition {
+  color: #55a532;
+  background-color: #eaffea;
+}
+
+.diff .hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}
+
+.markdown .hljs-link_url {
+  text-decoration: underline;
 }
 
 /* Global Resets */
@@ -173,15 +237,6 @@ blockquote {
 
 h1 {
   margin: 25px 0 15px;
-}
-
-code,
-pre {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  font-size: 14px;
-  margin: 10px 0 5px;
-  padding: 0 3px 2px;
-  border-radius: 6px;
 }
 
 [contenteditable]:focus {
@@ -409,6 +464,7 @@ pre {
 /* Page Banner */
 
 .page-banner {
+  display: none;
   height: 160px;
 }
 
@@ -654,141 +710,6 @@ pre {
   margin-top: 16px;
 }
 
-/* Sidebar */
-
-.bs-docs-sidebar {
-  margin: 0;
-}
-
-.related {
-  font-size: 16px;
-  font-weight: 300;
-  font-style: italic;
-  margin: 30px 0 10px 0;
-}
-
-.bs-docs-sidenav {
-  width: 90%;
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-          box-shadow: 0 1px 4px rgba(0,0,0,.065);
-}
-
-.bs-docs-sidenav > li > a {
-  display: block;
-  width: 190px \9;
-  margin: 0 0 -1px;
-  padding: 8px 14px;
-  border: 1px solid #e5e5e5;
-}
-
-.bs-docs-sidenav > li:first-child > a {
-  -webkit-border-radius: 6px 6px 0 0;
-     -moz-border-radius: 6px 6px 0 0;
-          border-radius: 6px 6px 0 0;
-}
-
-.bs-docs-sidenav > li:last-child > a {
-  -webkit-border-radius: 0 0 6px 6px;
-     -moz-border-radius: 0 0 6px 6px;
-          border-radius: 0 0 6px 6px;
-}
-
-.bs-docs-sidenav > .active > a {
-  position: relative;
-  z-index: 0;
-  padding: 9px 15px;
-  border: 0;
-  text-shadow: 0 1px 0 rgba(0,0,0,.15);
-  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-}
-
-/* Chevrons */
-.bs-docs-sidenav .icon-chevron-right {
-  float: right;
-  margin-top: 8px;
-  margin-right: -6px;
-  opacity: .25;
-}
-
-.bs-docs-sidenav > li > a:hover {
-  background-color: #f5f5f5;
-}
-
-.bs-docs-sidenav a:hover .icon-chevron-right {
-  opacity: .5;
-}
-
-.bs-docs-sidenav .active .icon-chevron-right,
-.bs-docs-sidenav .active a:hover .icon-chevron-right {
-  background-image: url(../img/glyphicons-halflings-white.png);
-  opacity: 1;
-}
-
-.bs-docs-sidenav.affix {
-  top: 40px;
-}
-
-.bs-docs-sidenav.affix-bottom {
-  position: absolute;
-  top: auto;
-  bottom: 270px;
-}
-
-/* Tutorial */
-
-#try-btn {
-  border: 0;
-  display: inline;
-}
-
-#try-btn:hover {
-  background-color: #006dcc;
-  *background-color: #0044cc;
-  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
-  background-repeat: repeat-x;
-  background-position: 0;
-}
-
-
-/* Example */
-
-.example {
-  height: 240px;
-  margin: 30px 6px 0;
-}
-
-.example h2 {
-  text-align: center;
-}
-
-.example h2 a:hover {
-  text-decoration: none;
-}
-
-.example img {
-  width: 280px;
-  height: 100px;
-  margin-bottom: 20px;
-  border: 7px solid #eee;
-}
-
-.example img:hover {
-  border-color: #ddd;
-}
-
 /* About */
 
 .about,
@@ -810,6 +731,63 @@ pre {
   height: 90px;
 }
 
+/* Header */
+
+.navbar-main {
+  background-color: #6BB6DA;
+}
+
+.navbar-main .nav.navbar-nav > li > a {
+  color: #fff;
+}
+
+.navbar-main .nav.navbar-nav > li.active > a, .navbar-main .nav.navbar-nav > li > a:hover {
+  background-color: transparent;
+  border-bottom: solid 2px #fff;
+  padding: 15px 10px 0 10px;
+  margin: 0 5px 13px 5px;
+}
+
+/* Sidebar */
+
+.ae-docs-sidebar {
+  padding-left: 20px;
+  margin: 40px 0;
+}
+
+.ae-docs-sidenav {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.ae-docs-sidebar .nav > li {
+  line-height: 1.2em;
+}
+
+.ae-docs-sidebar .nav > li > a {
+  color: #767676;
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 20px;
+}
+
+.ae-docs-sidebar .nav > li > a:hover {
+  background-color: transparent;
+  border-left: 1px solid #32a8e6;
+  color: #32a8e6;
+  padding-left: 19px;
+  text-decoration: none;
+}
+
+.ae-docs-sidebar .nav > li.active > a {
+  background-color: transparent;
+  border-left: 2px solid #32a8e6;
+  color: #32a8e6;
+  font-weight: 700;
+  padding-left: 18px;
+}
+
 /* Editor Demo */
 #contentEditable {
   border: dotted 1px #ccc;
@@ -820,4 +798,83 @@ pre {
 
 #contentEditable img {
   border: solid 1px #e6f1fa;
+}
+
+/* Features */
+.feature-header {
+  border-bottom: 1px solid #eee;
+  margin: 40px 0 20px;
+  padding-bottom: 9px;
+}
+
+.feature-lead {
+  color: #555;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.feature-demo {
+  max-width: 550px;
+}
+
+.feature-example {
+  background-color: #fff;
+  border-color: #ddd;
+  border-radius: 4px 4px 0 0;
+  border-style: solid;
+  border-width: 1px;
+  margin: 0 0 15px 0;
+  padding: 45px 15px 15px;
+  position: relative;
+}
+
+.feature-example:after {
+  color: #959595;
+  content: 'Example';
+  font-size: 12px;
+  font-weight: 700;
+  left: 15px;
+  letter-spacing: 1px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 15px;
+}
+
+.zero-clipboard {
+  display: block;
+  position: relative;
+}
+
+.zero-clipboard .btn-clipboard {
+  background-color: #fff;
+  border: solid 1px #e1e1e8;
+  border-radius: 0 4px 0 4px;
+  border-top-right-radius: 0;
+  display: block;
+  color: #767676;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 5px 8px;
+  position: absolute;
+  right: 0;
+  top: -16px;
+  z-index: 10;
+}
+
+.zero-clipboard .btn-clipboard-hover {
+  background-color: #32a8e6;
+  border-color: #32a8e6;
+  color: #fff;
+}
+
+.highlight {
+  background-color: #f7f7f9;
+  border: solid 1px #e1e1e8;
+  border-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin: -16px 0 15px 0;
+  padding: 9px 14px;
 }
