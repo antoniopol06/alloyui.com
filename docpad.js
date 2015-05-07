@@ -148,7 +148,6 @@ module.exports = {
                     $startsWith: '/guides'
                 }
             }, [{
-                type: 1,
                 order: 1,
                 title: 1
             }]);

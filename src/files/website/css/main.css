@@ -769,14 +769,17 @@ h1 {
   display: block;
   font-size: 13px;
   font-weight: 500;
-  padding: 4px 20px;
+  padding: 4px 10px;
 }
 
 .ae-docs-sidebar .nav > li > a:hover {
   background-color: transparent;
   border-left: 1px solid #32a8e6;
   color: #32a8e6;
-  padding-left: 19px;
+  display: inline-block;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  padding: 0 10px 0 9px;
   text-decoration: none;
 }
 
@@ -785,7 +788,9 @@ h1 {
   border-left: 2px solid #32a8e6;
   color: #32a8e6;
   font-weight: 700;
-  padding-left: 18px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  padding: 0 10px 0 8px;
 }
 
 /* Editor Demo */
@@ -798,6 +803,51 @@ h1 {
 
 #contentEditable img {
   border: solid 1px #e6f1fa;
+}
+
+/* Guides */
+.ae-guides-sidebar {
+  margin-top: 40px;
+  padding-left: 40px;
+}
+
+.ae-guides-sidebar .ae-docs-sidebar, .ae-guides-sidebar .ae-docs-sidenav {
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.ae-guides-sidebar .guide-target-header {
+  margin-bottom: 2px;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+.guide-header {
+  margin: 40px 0 20px;
+  padding-bottom: 9px;
+}
+
+.guide-step {
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.guide-content pre.highlight {
+  margin-top: 15px;
+}
+
+.guide-nested {
+  margin-left: 15px;
+}
+
+.guide-nested .guide-step {
+  color: #555;
+  font-size: 16px;
+}
+
+.guide-note {
+  font-style: italic;
+  margin: 50px 0;
 }
 
 /* Features */
@@ -840,6 +890,15 @@ h1 {
   position: absolute;
   text-transform: uppercase;
   top: 15px;
+}
+
+/* Code */
+.code-header {
+  color: #666;
+}
+
+.code-header + pre.highlight{
+  margin-top: 0;
 }
 
 .zero-clipboard {

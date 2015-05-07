@@ -1,33 +1,27 @@
 ---
-api: ToolbarBase
-category: Guide
-description: Adding a new toolbar is also as straightforward as adding a button. If you use the default React based UI, you may create a standard class. For your convenience, there are many mixins which you can use to ease the development of a toolbar like WidgetExclusive, WidgetFocusManager, ToolbarButtons, WidgetPosition or WidgetArrowBox. Then, name your toolbar somehow, for example ToolbarVersions and load it on the page. Don't forget to add it to the configuration of the toolbars, like this:
+category: Guides
+
 target: developer
-layout: single-doc
-tags: toolbar
+layout: guide
+order: 2
+
 title: Create Toolbars
-type: module
+description: Adding a new toolbar is also as straightforward as adding a button.
 ---
+<h4 class="guide-step">Creating a Toolbar</h4>
 
-````javascript
-var toolbars = {
-    add: {
-        buttons: ['image', 'camera', 'hline', 'table'],
-        tabIndex: 2
-    },
-    versions: {
-        buttons: ['annotate', 'comment', 'acceptChanges', 'rejectChanges'],
-        tabIndex: 1
-    }
-}
-````
+<p>If you use the default React based UI, you just need to create a standard class. For your convenience, there are many mixins which you can use to ease the development of a toolbar like:
+    <ul>
+        <li>WidgetExclusive</li>
+        <li>WidgetFocusManager</li>
+        <li>ToolbarButtons</li>
+        <li>WidgetPosition</li>
+        <li>WidgetArrowBox</li>
+    </ul>
+</p>
 
-In this example, <em>annotate</em>, <em>comment</em>, <em>acceptChanges</em> and <em>rejectChanges</em> will be the buttons that will be loaded on the toolbar, and that will help us handle document version changes.
-
-Example:
-
-````javascript
-var ToolbarVersions = React.createClass({
+<span class="code-header">Example of the barebones for a Toolbar to control document version changes:</span>
+<pre><code class="javascript">var ToolbarVersions = React.createClass({
     mixins: [AlloyEditor.WidgetDropdown, AlloyEditor.WidgetExclusive, AlloyEditor.WidgetFocusManager, AlloyEditor.ToolbarButtons, AlloyEditor.WidgetPosition, AlloyEditor.WidgetArrowBox],
 
     statics: {
@@ -110,5 +104,23 @@ var ToolbarVersions = React.createClass({
     }
 });
 
-AlloyEditor.Toolbars[ToolbarVersions.key] = AlloyEditor.ToolbarVersions = ToolbarVersions;
-````
+AlloyEditor.Toolbars[ToolbarVersions.key] = AlloyEditor.ToolbarVersions = ToolbarVersions;</code></pre>
+
+<h4 class="guide-step">Using a Toolbar</h4>
+
+<p>After creating your toolbar, you have to add it to the configuration of the editor where you want to use it.</p>
+
+<pre><code class="javascript">var toolbars = {
+    add: {
+        buttons: ['image', 'camera', 'hline', 'table'],
+        tabIndex: 2
+    },
+    versions: {
+        buttons: ['annotate', 'comment', 'acceptChanges', 'rejectChanges'],
+        tabIndex: 1
+    }
+}</code></pre>
+
+<p>In this example, <em>annotate</em>, <em>comment</em>, <em>acceptChanges</em> and <em>rejectChanges</em> will be the buttons that will be loaded on the toolbar, and that will help us handle document version changes. Read our <a href="/guides/create_buttons">Create Buttons</a> Guide to know how to do this!</p>
+
+<p class="guide-note"></p>

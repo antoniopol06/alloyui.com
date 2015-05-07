@@ -1,0 +1,29 @@
+---
+category: Guides
+
+target: developer
+layout: guide
+order: 1
+
+title: How to build it?
+description: How to build a version of AlloyEditor.
+---
+<h4 class="guide-step">1 - Install NodeJS</h4>
+Using your browser, navigate to http://nodejs.org and install NodeJS.
+
+<h4 class="guide-step">2 - Install Gulp</h4>
+<span class="code-header">Open a terminal in your computer and execute</span>
+<pre><code class="bash">[sudo] npm install -g gulp</code></pre>
+
+<h4 class="guide-step">3 - Fork AlloyEditor</h4>
+Use the __Fork__ button in our [Github Repository page](https://github.com/liferay/alloy-editor) to get a copy of alloyEditor. After that, follow the instructions to clone the project into your computer.
+
+<h4 class="guide-step">4 - Install AlloyEditor dependencies</h4>
+<span class="code-header">Navigate to the AlloyEditor project in your computer and execute</span>
+<pre><code class="bash">[sudo] npm install</code></pre>
+
+<h4 class="guide-step">5 - Build AlloyEditor</h4>
+<span class="code-header">Navigate to the AlloyEditor project in your computer and execute</span>
+<pre><code class="bash">gulp build</code></pre>
+
+<p class="guide-note">There are other gulp tasks you can use like __release__ to generate a bundled zip file, or __watch__ if you're in development mode</p>

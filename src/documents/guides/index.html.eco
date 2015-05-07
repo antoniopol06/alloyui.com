@@ -1,31 +1,23 @@
 ---
-category: Guide
-description: The section below supposes that you are using the default UI, which is built using React. The core of AlloyEditor is fully separated from the UI and creating another UI, based on any other framework, like jQuery, Angular or using just vanilla JavaScript and CSS is easy.
+category: Guides
+
 target: user
-layout: single-doc
+layout: guide
 order: 1
+
 title: Getting Started
-type: general
+description: The section below assumes that you are using the default UI, which is built using React. The AlloyEditor core is fully separated from the UI and creating another one based on any other framework is very easy.
 ---
+<h4 class="guide-step">1 - Download AlloyEditor</h4>
+<p>Download AlloyEditor from <a href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">here</a>, then unzip it.</p>
 
-<h4>1 - Download AlloyEditor</h4>
-
-<p class="description">Download AlloyEditor from <a href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">here</a>, then unzip it.</p>
-
-<hr>
-
-<h4>2 - Copy and paste</h4>
-
+<h4 class="guide-step">2 - Copy and Paste</h4>
 <pre><code class="html">&lt;link href=&quot;alloy-editor/assets/alloy-editor-ocean.css&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
 
-<hr>
+<h4 class="guide-step">3 - Use AlloyEditor</h4>
 
-<h4>3 - Start using AlloyEditor</h4>
-
-<p class="description">Invoke the <code>editable</code> static method on AlloyEditor passing the id of the node you want to edit.</p>
+<span class="code-header">Invoke the <code>editable</code> static method on AlloyEditor passing the id of the node you want to edit</span>
 <pre><code>AlloyEditor.editable('myContentEditable');</code></pre>
 
-<hr>
-
-<p>And that is everything you need to get started!</p>
+<p class="guide-note">And that is everything you need to get started!</p>
