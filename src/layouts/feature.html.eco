@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="container">
-  <div class="col-xs-9">
+  <div class="col-md-8 col-md-offset-1">
     <h1 class="feature-header"><%= @document.title %></h1>
 
     <% for example in @getCollection("features").toJSON(): %>
@@ -11,7 +11,7 @@ layout: default
           <p class="feature-lead"><%= @document.intro %></p>
 
           <div class="feature-example">
-            <img class="center-block feature-demo" src="<%= @getAssetsUrl() %>/img/example-<%= @document.button_example %>.gif"></img>
+            <img class="center-block feature-demo" src="<%= @getAssetsUrl() %>/img/features/<%= @document.button_example %>.gif"></img>
           </div>
           <div class="zero-clipboard">
             <span class="btn-clipboard">Copy</span>
@@ -36,7 +36,7 @@ layout: default
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 
-  <div class="col-xs-3">
+  <div class="col-md-2">
     <nav class="ae-docs-sidebar">
       <ul class="nav ae-docs-sidenav">
         <% for example in @getCollection("features").toJSON(): %>

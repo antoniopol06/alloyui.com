@@ -2,33 +2,16 @@
 title: About
 layout: default
 ---
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
 
-<div class="banner page-banner">
-  <div class="container">
-    <div class="presentation">
-      <h2>About</h2>
-    </div>
-  </div>
-</div>
+    <h3 class="about-header">AlloyEditor is a WYSIWYG Editor</h3>
 
-<div class="about">
-  <div class="container">
+    <p>Built with modern, extensible and configurable UI</p>
 
-  <div class="row">
-      <div class="title col-md-12">
-        <h3>AlloyEditor is a WYSIWYG Editor</h3>
-      </div>
-  </div>
+    <hr>
 
-  <div class="row">
-      <div class="title col-md-12">
-          <p>Built with modern, extensible and configurable UI</p>
-      </div>
-  </div>
-
-  <hr>
-
-  <p>Editing Web Content without using iframe is not something new these days. However, the toolbar of the most editors appears on top or on bottom of the container, where user is writing. Wouldn't it be better if were able to use the full power of CKEditor, but to provide modern UI? A UI, which provides context toolbars, which change their appearance depending on the selected element - image or text. A UI, which allows developer to add or remove buttons to these toolbars from a simple configuration or even on the fly? </p>
+    <p>Editing Web Content without using iframe is not something new these days. However, the toolbar of the most editors appears on top or on bottom of the container, where user is writing. Wouldn't it be better if were able to use the full power of CKEditor, but to provide modern UI? A UI, which provides context toolbars, which change their appearance depending on the selected element - image or text. A UI, which allows developer to add or remove buttons to these toolbars from a simple configuration or even on the fly? </p>
 
     <p>Well, thats what we did. We removed the default UI of CKEditor. As any modern editor, AlloyEditor places the toolbar just above the selection. AlloyEditor actually goes a step forward in this direction and it shows the toolbars in the most appropriate position. That might be where user releases the mouse after he finishes the selection, or just where selection begins or ends.</p>
 
@@ -38,12 +21,7 @@ layout: default
 
     <hr>
 
-    <div class="row">
-      <div class="title col-md-5">
-        <h3>questions?</h3>
-        <p>don't be shy</p>
-      </div>
-    </div>
+    <h3 class="about-header">questions? <small><em>don't be shy</em></small></h3>
 
     <p>We care about our users, so if you are having any trouble or perhaps want to discuss a certain feature, here's where you can find us.</p>
 
@@ -55,27 +33,18 @@ layout: default
 
     <hr>
 
-    <div class="row">
-      <div class="title col-md-5">
-        <h3>contributors</h3>
-        <p>who?</p>
-      </div>
-    </div>
+    <h3 class="about-header">contributors <small><em>who?</em></small></h3>
 
     <p>This project has been created by <a href="https://twitter.com/ipeychev">Iliyan Peychev</a> in 2014 and people are already contributing to it. Join them!</p>
 
-    <div id="contributors"></div>
-
-    <div class="row">
-      <div class="title">
-        <p class="call">wanna be part of it?</p>
-      </div>
+    <div id="contributors">
+      <a class="contributor hide" rel="nofollow">
+        <img class="img img-thumbnail" />
+      </a>
     </div>
 
-    <div class="row">
-      <a class="bt" id="bt-contribute" href="<%= @getSiteUrl() %>/contributing/">Contribute</a>
-    </div>
-
+    <hr>
+    <p class="call">wanna be part of it? <a class="bt" id="bt-contribute" href="<%= @getSiteUrl() %>/contributing/">Contribute!</a></p>
   </div>
 </div>
 

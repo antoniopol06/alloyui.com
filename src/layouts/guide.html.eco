@@ -1,17 +1,8 @@
 ---
 layout: default
 ---
-
-<div class="banner page-banner">
-  <div class="container">
-    <div class="presentation">
-      <h2>Guides</h2>
-    </div>
-  </div>
-</div>
-
 <div class="container">
-  <div class="col-xs-9">
+  <div class="col-md-8 col-md-offset-1">
     <h2 class="guide-header"><%= @document.title %></h2>
 
     <% if @document.description: %>
@@ -38,7 +29,7 @@ layout: default
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </div>
 
-  <div class="ae-guides-sidebar col-xs-3">
+  <div class="ae-guides-sidebar col-md-2">
     <p class="guide-target-header">Use</p>
     <nav class="ae-docs-sidebar">
       <ul class="nav ae-docs-sidenav">

@@ -1,112 +1,75 @@
 ---
 layout: default
 ---
-
 <div class="banner home-banner">
-  <div class="container">
-    <img src="<%= @getAssetsUrl() %>/img/screenshots.png" alt="Screenshots of AlloyEditor" width="1193" height="450">
-    <div class="presentation">
-      <h2>AlloyEditor</h2>
-      <h3>Editing made sexy again!</h3>
-      <p><%= @site.description %></p>
-      <p>Works on IE8+, Chrome, Firefox and Safari.</p>
-      <a class="bt" id="bt-download" href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">Download</a>
-      <a class="bt" id="bt-fork" href="<%= @site.githubUrl %>">Fork</a>
+    <div class="top">
+      <div class="container">
+        <h1>Editing made sexy again!</h1>
+        <p class="col-md-8 col-md-offset-2 description">a modern WYSIWYG editor built on top of CKEDITOR, designed to create modern and gorgeus web content</p>
+        <p class="col-md-4 col-md-offset-4 works-on">Works: IE9+ &nbsp;-&nbsp; Chrome &nbsp;-&nbsp; Firefox &nbsp;-&nbsp; Safari</p>
+
+        <div class="col-md-8 col-md-offset-2 action-buttons">
+          <div class="col-md-4">
+            <a class="btn btn-default btn-lg btn-get-started" href="<%= @getSiteUrl() %>/guides">Get Started</a>
+          </div>
+
+          <div class="col-md-4">
+            <a class="btn btn-default btn-lg btn-download"  href="<%= @getDownloadUrl() %>">Download</a>
+          </div>
+
+          <div class="col-md-4">
+            <a class="btn btn-default btn-lg btn-fork"  href="<%= @site.githubUrl %>"><span class="fa fa-github"></span>Fork me on Github</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <div class="col-md-6 col-md-offset-3 screenshot">
+      <img src="<%= @getAssetsUrl() %>/img/home_banner_capture.png" alt="A screenshot of AlloyEditor" />
+    </div>
 </div>
 
-<div class="quote">
-  <div class="container">
-    <blockquote>
-      <p></p>
-    </blockquote>
-  </div>
-</div>
+<div class="container features">
+  <h3 class="text-center">Features</h3>
 
-<div class="getting-started">
-  <div class="container">
-    <div class="editor-demo"></div>
+  <div class="col-md-8 col-md-offset-2 feature-list">
+    <div id="carousel-features" class="carousel carousel-fade slide" data-ride="carousel">
 
-    <div class="row">
-      <div class="title col-md-12">
-        <h3>Get started</h3>
-        <p>it’s really easy!</p>
-      </div>
-    </div>
-
-    <div class="row">
-    <div class="instructions col-md-12">
-        <p class="steps">1 - Download AlloyEditor</p>
-        <p class="description">
-        Download AlloyEditor from <a href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">here</a>, then unzip it.
+      <div class="carousel-inner" role="listbox">
+        <% for feature, index in @getCollection("landing_features").toJSON(): %>
+          <div class="item <% if index == 0: %>active<% end %>">
+            <div class="feature-image media-left">
+              <img class="media-object" src="<%= @getAssetsUrl() %>/img/landing_features/<%= feature.picture %>" />
+            </div>
+            <div class="media-body">
+              <h1 class="feature-title"><%- feature.title %></h1>
+              <%- feature.content %>
+            </div>
+          </div>
+        <% end %>
       </div>
 
-      <div class="instructions col-md-12">
-        <p class="steps">2 - Copy and paste</p>
-        <p class="description">
-        <pre><code>&lt;link href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;link href=&quot;alloy-editor/assets/alloy-editor.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;script src="<%= @getCdnSeed() %>"&gt;&lt;/script&gt;
-&lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
-      </div>
-
-
-      <div class="instructions col-md-12">
-        <p class="steps">3 - Start using AlloyEditor</p>
-        <p class="description">Load the module, initialize AlloyEditor and specify the configuration.</p>
-        <pre><code>YUI().use('alloy-editor', function(Y) {
-    var editor = new Y.AlloyEditor({
-        srcNode: '#editable',
-        toolbars: {
-            add: ['image', 'code'],
-            image: ['left', 'right'],
-            styles: ['strong', 'em', 'u', 'h1', 'h2', 'a', 'twitter']
-        }
-    });
-});</code></pre>
-      </div>
-    </div>
-
-    <p>And that is everything you need to get started!</p>
-
-    <hr>
-
-    <h3>Want to customize the editor? Glad you asked:</h3>
-
-    <div class="row">
-      <div class="instructions col-md-12">
-        <p class="description">Using YUI3 instead Alloy:</p>
-        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;&gt;&lt;/link&gt;
-&lt;link href="alloy-editor/assets/alloy-editor.css" rel="stylesheet"&gt;&lt;/link&gt;
-&lt;script src=&quot;http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
-&lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="instructions col-md-12">
-      <p class="description">Using already existing version of CKEditor, but with our UI:</p>
-        <pre><code>&lt;script src=&quot;alloy-editor/ckeditor.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;alloy-editor/alloy-editor-core.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-      </div>
+      <ol class="carousel-indicators">
+        <% for feature, index in @getCollection("landing_features").toJSON(): %>
+          <li<% if index == 0: %> class="active"<% end %> data-target="#carousel-features" data-slide-to="<%= index %>"></li>
+        <% end %>
+      </ol>
     </div>
 
     <hr>
+  </div>
+</div>
 
-    <p>Want to <a href="<%= @getSiteUrl() %>/guides/toolbar-configuration">customize the toolbars?</a></p>
+<div class="container testimonials">
+  <h3 class="text-center">Testimonials</h3>
 
-    <p>Want to <a href="<%= @getSiteUrl() %>/guides/toolbar-configuration#buttons-reordering">reorder, add or remove buttons?</a></p>
-
-    <p>Want to <a href="<%= @getSiteUrl() %>/guides/button">create new Button?</a></p>
-
-    <p>Want to <a href="<%= @getSiteUrl() %>/guides/toolbar">create new Toolbar?</a></p>
-
-    <p>Want <a href="<%= @getSiteUrl() %>/guides">more</a>?</p>
-
-    <div>
-      <h2><a class="btn btn-link link-to-guides" href="<%= @getSiteUrl() %>/guides/" style="padding-left: 0;">Check the full tutorial &raquo;</a></h2>
+  <div class="col-md-8 col-md-offset-2 media testimonials-list" id="testimonials-list">
+    <div class="media-left">
+      <img class="media-object testimonial-picture" />
+    </div>
+    <div class="media-body">
+      <p class="testimonial-comment"></p>
+      <p class="testimonial-author"></p>
     </div>
 
     <hr>

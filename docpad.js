@@ -153,7 +153,19 @@ module.exports = {
             }]);
         },
 
-        // Get all examples sorted by category & alphabetical order
+        // Get all features sorted by category & alphabetical order
+        landing_features: function() {
+            return this.getCollection("documents").findAllLive({
+                url: {
+                    $startsWith: '/landing_features'
+                }
+            }, [{
+                order: 1,
+                title: 1
+            }]);
+        },
+
+        // Get all features sorted by category & alphabetical order
         features: function() {
             return this.getCollection("documents").findAllLive({
                 url: {
@@ -165,14 +177,14 @@ module.exports = {
             }]);
         },
 
-        // Get all examples that contains featuringOrder attribute
-        featuring: function(database) {
-            return database.findAllLive({
-                featuringOrder: {
-                    $exists: true
+        // Get all testimonials sorted by author alphabetical order
+        testimonials: function() {
+            return this.getCollection("documents").findAllLive({
+                url: {
+                    $startsWith: '/testimonials'
                 }
             }, [{
-                featuringOrder: 1
+                author: 1
             }]);
         }
     },
