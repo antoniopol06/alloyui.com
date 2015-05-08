@@ -15,18 +15,18 @@
     "test": "docpad generate"
   },
   "dependencies": {
-    "docpad": "~6.69.0",
+    "docpad": "~6.78.1",
     "docpad-plugin-cleanurls": "~2.7.0",
-    "docpad-plugin-eco": "~2.0.3",
-    "docpad-plugin-highlightjs": "~2.2.2",
-    "docpad-plugin-marked": "~2.2.1",
+    "docpad-plugin-eco": "~2.1.0",
+    "docpad-plugin-highlightjs": "~2.3.0",
+    "docpad-plugin-marked": "~2.3.0",
     "docpad-plugin-related": "~2.2.2"
   },
   "devDependencies": {
-    "async": "~0.8.0",
-    "command": "0.0.4",
-    "fs-extra": "~0.8.1",
+    "async": "~0.9.0",
+    "command": "0.0.5",
+    "fs-extra": "~0.18.2",
     "grunt": "~0.4.5",
-    "which": "1.0.5"
+    "which": "1.0.9"
   }
 }
