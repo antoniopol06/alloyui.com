@@ -3,7 +3,7 @@ button_example: button-hline
 
 category: Features
 index: true
-intro: Draw the line - horizontal - with this button.
+intro: Create a horizontal line with this button.
 layout: feature
 title: Horizontal Line
 ---

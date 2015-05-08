@@ -3,7 +3,7 @@ button_example: button-underline
 
 category: Features
 index: true
-intro: Use this button to underline important content.
+intro: Use this button to underline the important content.
 layout: feature
 title: Underline
 ---

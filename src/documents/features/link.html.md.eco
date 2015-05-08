@@ -3,7 +3,7 @@ button_example: button-link
 
 category: Features
 index: true
-intro: Use this button to highlight important content.
+intro: Use this button to highlight an important content.
 layout: feature
 title: Link
 ---

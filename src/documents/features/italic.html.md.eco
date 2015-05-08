@@ -3,7 +3,7 @@ button_example: button-italic
 
 category: Features
 index: true
-intro: Use this button to emphasize important content.
+intro: Use this button to emphasize an important content.
 layout: feature
 title: Italic
 ---

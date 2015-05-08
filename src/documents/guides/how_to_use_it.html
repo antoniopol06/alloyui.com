@@ -10,7 +10,7 @@ description: The section below assumes that you are using the default UI, which 
 ---
 <h4 class="guide-step">1 - Include AlloyEditor's CSS in the page</h4>
 
-<pre><code class="html">&lt;link href="alloy-editor/assets/alloy-editor-ocean.css" rel="stylesheet"&gt;&lt;/link&gt;</code></pre>
+<pre><code class="html">&lt;link href="alloy-editor/assets/alloy-editor-ocean-min.css" rel="stylesheet"&gt;&lt;/link&gt;</code></pre>
 
 <h4 class="guide-step">2 - Include AlloyEditor's JS in the page</h4>
 
@@ -18,20 +18,16 @@ There are a <strong>few ways</strong> to include the editor on the page:
 
 <section class="guide-nested">
   <span class="code-header">Add the whole editor with all UI on the page</span>
-  <pre><code class="html">&lt;script src="alloy-editor/alloy-editor-all.js"&gt;&lt;/script&gt;</code></pre>
+  <pre><code class="html">&lt;script src="alloy-editor/alloy-editor-all-min.js"&gt;&lt;/script&gt;</code></pre>
 
-  <span class="code-header">Add it on the page separating the CKEditor code from AlloyEditor</span>
-  <pre><code class="html">&lt;script src="alloy-editor/ckeditor.js"&gt;&lt;/script&gt;
-&lt;script src="alloy-editor/alloy-editor-no-ckeditor.js"&gt;&lt;/script&gt;</code></pre>
+  <span class="code-header">Add it on the page separating the CKEditor code from AlloyEditor. This is useful if in your project you already use CKEditor.</span>
+  <pre><code class="html">&lt;script src="alloy-editor/alloy-editor-no-ckeditor-min.js"&gt;&lt;/script&gt;</code></pre>
 
-  <span class="code-header">Add it on the page separating the React code from AlloyEditor</span>
-  <pre><code class="html">&lt;script src="alloy-editor/react.js"&gt;&lt;/script&gt;
-&lt;script src="alloy-editor/alloy-editor-no-react.js"&gt;&lt;/script&gt;</code></pre>
+  <span class="code-header">Add it on the page separating the React code from AlloyEditor. This is useful if you already use React in your project.</span>
+  <pre><code class="html">&lt;script src="alloy-editor/alloy-editor-no-react-min.js"&gt;&lt;/script&gt;</code></pre>
 
-  <span class="code-header">Add it on the page separating both the React and the CKEditor code from AlloyEditor</span>
-  <pre><code class="html">&lt;script src="alloy-editor/ckeditor.js"&gt;&lt;/script&gt;
-&lt;script src="alloy-editor/react.js"&gt;&lt;/script&gt;
-&lt;script src="alloy-editor/alloy-editor-core.js"&gt;&lt;/script&gt;</code></pre>
+  <span class="code-header">If you use both React and CKEditor on your page, then just include AlloyEditor's core</span>
+  <pre><code class="html">&lt;script src="alloy-editor/alloy-editor-core-min.js"&gt;&lt;/script&gt;</code></pre>
 </section>
 
 <h4 class="guide-step">3 - Invoke the static <code>editable</code> method of AlloyEditor</h4>
