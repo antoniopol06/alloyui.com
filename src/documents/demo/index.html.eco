@@ -106,9 +106,8 @@ layout: default
     </div>
 
     <div class="container">
-        <p id="addNewButton">P.S. Do you know that the Marquee button, which you probably used to have fun with the demo was especially added for this page? It does not exist as a default button in AlloyEditor. However, adding a new button is extremely easy. Here is the code for it:</p>
+        <span class="code-header" id="addNewButton">P.S. Do you know that the Marquee button, which you probably used to have fun with the demo was especially added for this page? It does not exist as a default button in AlloyEditor. However, adding a new button is extremely easy. Here is the code for it:</span>
 
-        <div id="h4CodeContainer" class="container">
         <pre><code>var ButtonMarquee = React.createClass({
     mixins: [AlloyEditor.ButtonStyle, AlloyEditor.ButtonStateClasses, AlloyEditor.ButtonActionStyle],
 
@@ -141,13 +140,14 @@ layout: default
 
 AlloyEditor.Buttons[ButtonMarquee.key] = AlloyEditor.ButtonMarquee = ButtonMarquee;</code></pre>
 
-    <p>And then we used it just like this:</p>
+    <span class="code-header">And then we used it just like this:</span>
 
     <pre><code>AlloyEditor.Selections[2].buttons.push('marquee');
 
 AlloyEditor.editable('contentEditable');</code></pre>
-        </div>
-    </div>
+    </pre>
+
+    <p class="guide-note"></p>
 
     <div class="container">
         <div id="disqus_thread"></div>

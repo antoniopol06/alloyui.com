@@ -8,17 +8,19 @@ layout: default
     <% for example in @getCollection("features").toJSON(): %>
       <% if example.tag == @document.tag: %>
         <% if example.title == @document.title: %>
-          <p class="feature-lead"><%= @document.intro %></p>
+          <% if example.index == true: %>
+            <p class="feature-lead"><%= @document.intro %></p>
 
-          <div class="feature-example">
-            <img class="center-block feature-demo" src="<%= @getAssetsUrl() %>/img/features/<%= @document.button_example %>.gif"></img>
-          </div>
-          <div class="zero-clipboard">
-            <span class="btn-clipboard">Copy</span>
-          </div>
-          <pre>
-            <%- @content %>
-          </pre>
+            <div class="feature-example">
+              <img class="center-block feature-demo" src="<%= @getAssetsUrl() %>/img/features/<%= @document.button_example %>.gif"></img>
+            </div>
+            <div class="zero-clipboard">
+              <span class="btn-clipboard">Copy</span>
+            </div>
+            <pre>
+              <%- @content %>
+            </pre>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>

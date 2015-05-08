@@ -1,10 +1,22 @@
 ---
-button_example: button-example
+button_example: button-bold
 
 category: Features
 index: false
-intro: Intro to the amazing Features.
+intro: Use this button to highlight important content.
 layout: feature
-title: So many features!
+title: Bold
 ---
-<code class="javascript">AlloyEditor.editable('myContentEditable');</code>
+<code class="javascript">var editor = AlloyEditor.editable('myContentEditable', {
+	toolbars: {
+		styles: {
+			selections: [
+				{
+					name: 'text',
+					buttons: ['bold'],
+					test: AlloyEditor.SelectionTest.text
+				}
+			]
+		}
+	}
+});</code>
