@@ -799,9 +799,9 @@ footer .copyright {
   z-index: 10;
 }
 
-.zero-clipboard .btn-clipboard-hover {
-  background-color: #32a8e6;
-  border-color: #32a8e6;
+.zero-clipboard .zeroclipboard-is-hover {
+  background-color: #7CC3E1;
+  border-color: #7CC3E1;
   color: #fff;
 }
 

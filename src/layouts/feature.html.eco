@@ -15,11 +15,13 @@ layout: default
               <img class="center-block feature-demo" src="<%= @getAssetsUrl() %>/img/features/<%= @document.button_example %>.gif"></img>
             </div>
             <div class="zero-clipboard">
-              <span class="btn-clipboard">Copy</span>
+              <span class="btn-clipboard" id="copyToClipboardButton">Copy</span>
             </div>
-            <pre>
-              <%- @content %>
-            </pre>
+            <div id="featureExample">
+              <pre>
+                <%- @content %>
+              </pre>
+            </div>
           <% end %>
         <% end %>
       <% end %>
@@ -52,3 +54,10 @@ layout: default
     </nav>
   </div>
 </div>
+
+<script src="<%= @getAssetsUrl() %>/js/ZeroClipboard.min.js"></script>
+<script>
+  var zeroClipboard = new ZeroClipboard(document.getElementById('copyToClipboardButton'));
+
+  zeroClipboard.setText(document.getElementById('featureExample').innerText);
+</script>
