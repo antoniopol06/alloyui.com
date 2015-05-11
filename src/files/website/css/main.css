@@ -414,7 +414,7 @@ h1 {
 }
 
 .home-banner .works-on {
-  font-size: 19px;
+  font-size: 17px;
   font-style: normal;
   margin-bottom: 15px;
 }
@@ -521,7 +521,6 @@ h1 {
 }
 
 .navbar-main .navbar-toggle {
-  border-color: #fff;
   height: 34px;
   width: 44px;
 }
