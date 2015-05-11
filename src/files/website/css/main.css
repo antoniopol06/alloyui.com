@@ -565,11 +565,6 @@ footer .fork a {
   font-weight: 100;
 }
 
-footer .fork a:hover {
-  font-weight: 400;
-  text-decoration: none;
-}
-
 footer .copyright {
   font-size: 14px;
   text-transform: uppercase;
@@ -602,8 +597,7 @@ footer .copyright {
 .ae-docs-sidebar .nav > li > a:hover {
   background-color: transparent;
   display: inline-block;
-  font-weight: 800;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .ae-docs-sidebar .nav > li.active > a {
