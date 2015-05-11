@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="container">
-  <div class="col-md-8 col-md-offset-1">
+  <div class="col-sm-8 col-sm-offset-1">
     <h2 class="guide-header"><%= @document.title %></h2>
 
     <% if @document.description: %>
@@ -29,7 +29,7 @@ layout: default
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </div>
 
-  <div class="ae-guides-sidebar col-md-2">
+  <div class="ae-guides-sidebar col-sm-2 hidden-xs">
     <p class="guide-target-header">Use</p>
     <nav class="ae-docs-sidebar">
       <ul class="nav ae-docs-sidenav">

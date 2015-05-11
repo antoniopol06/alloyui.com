@@ -9,15 +9,15 @@ layout: default
         <p class="col-md-4 col-md-offset-4 works-on">Supported browsers:<br> IE9+ &nbsp;-&nbsp; Chrome &nbsp;-&nbsp; Firefox &nbsp;-&nbsp; Safari</p>
 
         <div class="col-md-8 col-md-offset-2 action-buttons">
-          <div class="col-md-4">
+          <div class="col-sm-4">
             <a class="btn btn-default btn-lg btn-get-started" href="<%= @getSiteUrl() %>/guides">Get Started</a>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-sm-4">
             <a class="btn btn-default btn-lg btn-download"  href="<%= @getDownloadUrl() %>">Download</a>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-sm-4">
             <a class="btn btn-default btn-lg btn-fork"  href="<%= @site.githubUrl %>"><span class="fa fa-github"></span>Fork me on GitHub</a>
           </div>
         </div>
