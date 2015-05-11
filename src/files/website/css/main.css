@@ -665,9 +665,15 @@ footer .copyright {
   text-decoration: none;
 }
 
-.contributor img {
+.contributor {
+  display: inline-block;
   height: 100px;
   width: 100px;
+}
+
+.contributor img {
+  height: 100%;
+  width: 100%;
 }
 
 /* Contributing */
