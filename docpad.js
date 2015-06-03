@@ -55,6 +55,20 @@ module.exports = {
          * Helpers
          */
 
+        // Get the absolute URL of the assets folder
+        getAssetsUrl: function() {
+            if (this.site.isLastVersion) {
+                return "" + this.site.url + "/website";
+            } else {
+                return "" + this.site.url + "/versions/" + this.site.version + "/website";
+            }
+        },
+
+        // Get AlloyEditor's version
+        getAlloyEditorVersion: function() {
+            return this.alloyeditor.version;
+        },
+
         // Get the prepared site/document title
         getPreparedTitle: function() {
 
@@ -103,15 +117,6 @@ module.exports = {
                 return "" + this.site.url;
             } else {
                 return "" + this.site.url + "/versions/" + this.site.version;
-            }
-        },
-
-        // Get the absolute URL of the assets folder
-        getAssetsUrl: function() {
-            if (this.site.isLastVersion) {
-                return "" + this.site.url + "/website";
-            } else {
-                return "" + this.site.url + "/versions/" + this.site.version + "/website";
             }
         },
 
