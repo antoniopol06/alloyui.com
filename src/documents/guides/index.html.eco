@@ -13,6 +13,8 @@ description: The section below assumes that you are using the default UI, which 
 
 <p>Option 2) Install AlloyEditor via Bower (<code>bower install alloyeditor</code>)</p>
 
+<p>Option 3) Install AlloyEditor via NPM (<code>npm install alloyeditor</code>)</p>
+
 <h4 class="guide-step">2 - Copy and Paste</h4>
 <p>If you downloaded the zip file:</p>
 <pre><code class="html">&lt;link href=&quot;alloy-editor/assets/alloy-editor-ocean-min.css&quot; rel=&quot;stylesheet&quot;&gt;
