@@ -39,7 +39,7 @@ description: Adding a new toolbar is also as straightforward as adding a button.
     getDefaultProps: function() {
         return {
             circular: true,
-            descendants: '.alloy-editor-button, .alloy-editor-toolbar-element',
+            descendants: '.ae-button, .ae-toolbar-element',
             keys: {
                 next: [38, 39],
                 prev: [37, 40]
@@ -51,10 +51,10 @@ description: Adding a new toolbar is also as straightforward as adding a button.
      * Returns the class name of the toolbar in case of both exclusive and normal mode.
      */
     _getToolbarClassName: function() {
-        var cssClass = 'alloy-editor-toolbar-versions';
+        var cssClass = 'ae-toolbar-versions';
 
         if (this.props.renderExclusive) {
-            cssClass = 'alloy-editor-toolbar ' + this.getArrowBoxClasses();
+            cssClass = 'ae-toolbar ' + this.getArrowBoxClasses();
         }
 
         return cssClass;
@@ -81,7 +81,7 @@ description: Adding a new toolbar is also as straightforward as adding a button.
             domNode.style.top = region.top - domNode.offsetHeight/2 + startRect.height/2 + 'px';
             domNode.style.opacity = 1;
 
-            domElement.removeClass('alloy-editor-arrow-box');
+            domElement.removeClass('ae-arrow-box');
 
             this.cancelAnimation();
         }
@@ -96,7 +96,7 @@ description: Adding a new toolbar is also as straightforward as adding a button.
 
         return (
             <div className={className} data-tabindex={this.props.config.tabIndex || 0} onFocus={this.focus} onKeyDown={this.handleKey} tabIndex="-1">
-                <div className="alloy-editor-container">
+                <div className="ae-container">
                     {buttons}
                 </div>
             </div>

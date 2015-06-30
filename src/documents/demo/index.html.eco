@@ -131,11 +131,11 @@ layout: default
     },
 
     render: function() {
-        var cssClass = 'alloy-editor-button ' + this.getStateClasses();
+        var cssClass = 'ae-button ' + this.getStateClasses();
 
         return (
             <button className={cssClass} data-type="button-marquee" onClick={this.applyStyle} tabIndex={this.props.tabIndex}>
-                <span className="alloy-editor-icon-separator"></span>
+                <span className="ae-icon-separator"></span>
             </button>
         );
     }
@@ -197,7 +197,7 @@ AlloyEditor.editable('contentEditable');</code></pre>
         },
 
         render: function() {
-            var cssClass = 'alloy-editor-button ' + this.getStateClasses();
+            var cssClass = 'ae-button ' + this.getStateClasses();
 
             return (
                 React.createElement(
@@ -211,7 +211,7 @@ AlloyEditor.editable('contentEditable');</code></pre>
                     React.createElement(
                         'span',
                         {
-                            className: 'alloy-editor-icon-separator'
+                            className: 'ae-icon-separator'
                         }
                     )
                 )
