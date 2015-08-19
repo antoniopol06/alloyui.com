@@ -10,18 +10,6 @@ module.exports = {
     templateData: {
 
         /* -----------------------------
-         * AlloyUI Information
-         */
-
-        alloy: {
-            // AlloyUI version
-            version: '3.0.0',
-
-            // CDN domain
-            cdnDomain: 'http://cdn.alloyui.com'
-        },
-
-        /* -----------------------------
          * AlloyEditor Information
          */
 
@@ -91,21 +79,6 @@ module.exports = {
             return this.document.description || this.site.description;
         },
 
-        // Get the Bootstrap CSS file for this Alloy version
-        getBootstrapCSS: function() {
-            return this.getAssetsUrl() + "/css/bootstrap.min.css";
-        },
-
-        // Get the CDN path for this Alloy version
-        getCdnPath: function() {
-            return "" + this.alloy.cdnDomain + "/" + this.alloy.version;
-        },
-
-        // Get the CDN seed file for this Alloy version
-        getCdnSeed: function() {
-            return "" + this.alloy.cdnDomain + "/" + this.alloy.version + "/aui/aui-min.js";
-        },
-
         // Get the download URL for this Alloy version
         getDownloadUrl: function() {
             return "https://github.com/liferay/alloy-editor/releases/download/" + "v" + this.alloyeditor.version + "/alloy-editor-" + this.alloyeditor.version + ".zip";
@@ -118,26 +91,6 @@ module.exports = {
             } else {
                 return "" + this.site.url + "/versions/" + this.site.version;
             }
-        },
-
-        // Read File
-        readFile: function(relativePath) {
-            var fsUtil, path, result;
-            fsUtil = require('fs');
-            path = this.document.fullDirPath + '/' + relativePath;
-            result = fsUtil.readFileSync(path);
-            if (result instanceof Error) {
-                throw result;
-            } else {
-                return result.toString();
-            }
-        },
-
-        // Code File
-        codeFile: function(relativePath, language) {
-            var contents;
-            contents = this.readFile(relativePath);
-            return "<pre><code class=\"" + language + "\">" + contents + "</code></pre>";
         }
     },
 
@@ -179,17 +132,6 @@ module.exports = {
             }, [{
                 category: 1,
                 title: 1
-            }]);
-        },
-
-        // Get all testimonials sorted by author alphabetical order
-        testimonials: function() {
-            return this.getCollection("documents").findAllLive({
-                url: {
-                    $startsWith: '/testimonials'
-                }
-            }, [{
-                author: 1
             }]);
         }
     },
