@@ -21,7 +21,10 @@ description: Adding a new toolbar is also as straightforward as adding a button.
 </p>
 
 <span class="code-header">Example of the barebones for a Toolbar to control document version changes:</span>
-<pre><code class="javascript">var ToolbarVersions = React.createClass({
+<pre><code class="javascript">// Use the built-in version of React if your site does not use React
+var React = AlloyEditor.React;
+
+var ToolbarVersions = React.createClass({
     mixins: [AlloyEditor.WidgetDropdown, AlloyEditor.WidgetExclusive, AlloyEditor.WidgetFocusManager, AlloyEditor.ToolbarButtons, AlloyEditor.WidgetPosition, AlloyEditor.WidgetArrowBox],
 
     statics: {

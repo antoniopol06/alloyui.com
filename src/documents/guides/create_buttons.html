@@ -11,7 +11,10 @@ description: If you run the editor with the default UI, which is written in Reac
 <h4 class="guide-step">Creating a Button</h4>
 
 <span class="code-header">Example of a new button that converts the current selection into a marquee</span>
-<pre><code class="javascript">var ButtonMarquee = React.createClass({
+<pre><code class="javascript">// Use the built-in version of React if your site does not use React
+var React = AlloyEditor.React;
+
+var ButtonMarquee = React.createClass({
     mixins: [AlloyEditor.ButtonStyle, AlloyEditor.ButtonStateClasses, AlloyEditor.ButtonActionStyle],
 
     propTypes: {
