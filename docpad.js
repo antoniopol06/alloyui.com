@@ -133,6 +133,17 @@ module.exports = {
                 category: 1,
                 title: 1
             }]);
+        },
+
+        // Get all updates sorted by version
+        updates: function() {
+            return this.getCollection("documents").findAllLive({
+                url: {
+                    $startsWith: '/updates/v_'
+                }
+            }, [{
+                version: -1
+            }]);
         }
     },
 
