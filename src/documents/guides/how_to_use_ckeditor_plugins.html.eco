@@ -35,6 +35,10 @@ AlloyEditor.editable('contentEditable', {
 	extraPlugins: AlloyEditor.Core.ATTRS.extraPlugins.value + ',ae_richcombobridge,font'
 });</code></pre>
 
+<div class="thumbnail">
+	<img class="img img-polaroid" src="<%= @getAssetsUrl() %>/img/guides/ckeditor_plugins.gif">
+</div>
+
 <p>Current existing UI-Bridge plugins are:
 	<ul>
 		<li><a href="http://alloyeditor.com/api/classes/CKEDITOR.plugins.ae_buttonbridge.html">Button</a></li>
@@ -49,3 +53,7 @@ AlloyEditor.editable('contentEditable', {
 
 <span class="code-header">Use the new <code>moono</code> skin to close the gap between AlloyEditor default look and feel and CKEditor's.</span>
 <pre><code class="html">&lt;link href="alloy-editor/assets/alloy-editor-moono-min.css" rel="stylesheet"&gt;&lt;/link&gt;</code></pre>
+
+<div class="thumbnail">
+	<img class="img img-polaroid" src="<%= @getAssetsUrl() %>/img/guides/ckeditor_moono.gif">
+</div>
