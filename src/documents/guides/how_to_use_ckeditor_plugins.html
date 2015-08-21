@@ -1,0 +1,51 @@
+---
+category: Guides
+
+target: user
+layout: guide
+order: 2
+
+title: How to use CKEditor Plugins?
+description: Is there an existing CKEditor plugin you like? Chances are you will be able to use it with AlloyEditor as well!
+---
+<h4 class="guide-step">1 - Download your plugin</h4>
+
+<p>CKEditor offers a <a href="http://ckeditor.com/addons/plugins/all">huge selection of plugins</a>. Find and download the one of your choosing into your project ckeditor dist folder.</p>
+
+<h4 class="guide-step">2 - Add the CKEditor plugin</h4>
+
+<span class="code-header">All that's left for you to do is to add the plugin to your editor configuration&#42;</span>
+<pre><code class="javascript">// Extend the extraPlugins value adding the new plugins to the default ones
+AlloyEditor.editable('contentEditable', {
+	extraPlugins: AlloyEditor.Core.ATTRS.extraPlugins.value + ',myplugin,myplugindependency'
+});</code></pre>
+
+<p><small>&#42; Keep in mind that some plugins have dependencies that are not bundled inside AlloyEditor. You'll need to download and add them to the <code>extraPlugins</code> property as well</small></p>
+
+<div class="alert alert-warning" role="alert"><i class="glyphicon glyphicon-exclamation-sign"></i> Keep reading if the plugin you want contains UI...</div>
+
+<h4 class="guide-step">3 - Add one of AlloyEditor's ui-bridge plugins</h4>
+
+<p>AlloyEditor provides a set of plugins that work as an adapter for CKEditor UI features generating compatible buttons, richcombos, panels and more that can be reused. All you need to do is use the appropriate ui-bridge plugin and add the buttons to an existing or new selection.</p>
+
+<span class="code-header">For example, you can reuse the <a href="http://ckeditor.com/addon/font">Font Size and Family Plugin</a> like this:.</span>
+<pre><code class="javascript">AlloyEditor.Selections[2].buttons = ['Font', 'FontSize'].concat(AlloyEditor.Selections[2].buttons);
+
+AlloyEditor.editable('contentEditable', {
+	extraPlugins: AlloyEditor.Core.ATTRS.extraPlugins.value + ',ae_richcombobridge,font'
+});</code></pre>
+
+<p>Current existing UI-Bridge plugins are:
+	<ul>
+		<li><a href="http://alloyeditor.com/api/classes/CKEDITOR.plugins.ae_buttonbridge.html">Button</a></li>
+		<li><a href="http://alloyeditor.com/api/classes/CKEDITOR.plugins.ae_panelmenubuttonbridge.html">Panel Menu Button</a></li>
+		<li><a href="http://alloyeditor.com/api/classes/CKEDITOR.plugins.ae_richcombobridge.html">RichCombo</a></li>
+	</ul>
+</p>
+
+<h4 class="guide-step">4 - Use moono skin for visual compatibility</h4>
+
+<div class="alert alert-info" role="alert"><i class="glyphicon glyphicon-info-sign"></i> AlloyEditor's UI Bridge is in its early stages, so there are still some uncovered areas. For example, <strong>dialogs</strong> are not converted and will still appear with CKEditor's default look and feel.</div>
+
+<span class="code-header">Use the new <code>moono</code> skin to close the gap between AlloyEditor default look and feel and CKEditor's.</span>
+<pre><code class="html">&lt;link href="alloy-editor/assets/alloy-editor-moono-min.css" rel="stylesheet"&gt;&lt;/link&gt;</code></pre>
