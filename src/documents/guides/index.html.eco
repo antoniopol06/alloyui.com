@@ -22,7 +22,7 @@ description: The section below assumes that you are using the default UI, which 
 
 <p>If you downloaded it via Bower:</p>
 <pre><code class="html">&lt;link href=&quot;bower_components/alloyeditor/dist/alloy-editor/assets/alloy-editor-ocean-min.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;script src=&quot;bower_components/alloyeditor/dist/alloy-editor/alloy-editor-no-react-min.js&quot;&gt;&lt;/script&gt;</code></pre>
+&lt;script src=&quot;bower_components/alloyeditor/dist/alloy-editor/alloy-editor-all-min.js&quot;&gt;&lt;/script&gt;</code></pre>
 
 <h4 class="guide-step">3 - Use AlloyEditor</h4>
 
