@@ -109,7 +109,7 @@
         <div class="col-md-10 col-md-offset-1">
           <span class="fork"><a href="<%= @site.githubUrl %>blob/master/LICENSE.md">LGPL License</a></span>
           <span class="fork pull-right"><a href="<%= @site.githubUrl %>">Fork me on Github</a></span>
-          <p class="copyright">@ 2015 Liferay, Inc. All Rights Reserved</p>
+          <p class="copyright">@ 2015-2016 Liferay, Inc. All Rights Reserved</p>
         </div>
       </footer>
     </div>
