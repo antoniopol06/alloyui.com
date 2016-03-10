@@ -29,7 +29,17 @@ AlloyEditor.editable('contentEditable', {
 <p>AlloyEditor provides a set of plugins that work as an adapter for CKEditor UI features generating compatible buttons, richcombos, panels and more that can be reused. All you need to do is use the appropriate ui-bridge plugin and add the buttons to an existing or new selection.</p>
 
 <span class="code-header">For example, you can reuse the <a href="http://ckeditor.com/addon/font">Font Size and Family Plugin</a> like this:.</span>
-<pre><code class="javascript">AlloyEditor.Selections[2].buttons = ['Font', 'FontSize'].concat(AlloyEditor.Selections[2].buttons);
+<pre><code class="javascript">var textSelection;
+
+for (var i = 0; i < AlloyEditor.Selections.length; i++) {
+    textSelection = AlloyEditor.Selections[i];
+
+    if (textSelection.name === 'text') {
+      break;
+    }
+}
+
+textSelection.buttons = ['Font', 'FontSize'].concat(textSelection.buttons);
 
 AlloyEditor.editable('contentEditable', {
 	extraPlugins: AlloyEditor.Core.ATTRS.extraPlugins.value + ',ae_richcombobridge,font'

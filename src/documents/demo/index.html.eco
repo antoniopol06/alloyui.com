@@ -205,7 +205,17 @@ AlloyEditor.Buttons[ButtonMarquee.key] = AlloyEditor.ButtonMarquee = ButtonMarqu
 
     <span class="code-header">And then we add it to the text selection just like this:</span>
 
-    <pre><code>AlloyEditor.Selections[2].buttons.push('marquee');
+    <pre><code>var textSelection;
+
+for (var i = 0; i < AlloyEditor.Selections.length; i++) {
+    textSelection = AlloyEditor.Selections[i];
+
+    if (textSelection.name === 'text') {
+      break;
+    }
+}
+
+textSelection.buttons.push('marquee');
 
 AlloyEditor.editable('contentEditable');</code></pre>
     </pre>
@@ -278,7 +288,17 @@ AlloyEditor.editable('contentEditable');</code></pre>
 
         contentEditable.addEventListener('focus', destroyPopover);
 
-        AlloyEditor.Selections[2].buttons.push('marquee');
+        var textSelection;
+
+        for (var i = 0; i < AlloyEditor.Selections.length; i++) {
+            textSelection = AlloyEditor.Selections[i];
+
+            if (textSelection.name === 'text') {
+              break;
+            }
+        }
+
+        textSelection.buttons.push('marquee');
 
         var filters = [
             {
