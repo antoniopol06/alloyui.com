@@ -3,7 +3,7 @@ category: Guides
 
 target: developer
 layout: guide
-order: 2
+order: 6
 
 title: Skins
 description: Skins in AlloyEditor are a very powerful feature that allows you to seamlessly integrate the editor inside your app.
