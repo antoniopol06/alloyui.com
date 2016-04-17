@@ -1,0 +1,23 @@
+---
+button_example: button-linkautocomplete
+
+category: Features
+index: true
+intro: Add a link using autocomplete.
+layout: feature
+title: Link AutoComplete
+---
+<code class="javascript">var editor = AlloyEditor.editable('editable', {
+    buttonCfg: {
+        'linkEdit': {
+            data: function(term) {
+                return new Promise(function(resolve, reject) {
+                    // Send request to the server and based on the `term`
+                    // resolve the Promise with an array of items
+                    // in the following format:
+                    // [{title: 'Item1', url: 'http://liferay.com'}]
+                });
+            }
+        }
+    }
+});</code>
