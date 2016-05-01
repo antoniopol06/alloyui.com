@@ -282,7 +282,8 @@ AlloyEditor.editable('contentEditable');</code></pre>
         var contentEditable = document.getElementById('contentEditable');
 
         var destroyPopover = function() {
-            $('#sampleHint').remove();
+            var hintEl = document.getElementById('sampleHint');
+            hintEl.parentNode.removeChild(hintEl);
             contentEditable.removeEventListener('focus', destroyPopover);
         };
 
