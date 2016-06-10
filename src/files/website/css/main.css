@@ -712,6 +712,11 @@ footer .copyright {
   margin-top: 20px;
 }
 
+.ae-docs-sub-sidenav {
+  margin-bottom: 0px;
+  padding-left: 20px;
+}
+
 .ae-docs-sidebar .nav > li {
   line-height: 1.2em;
 }
@@ -739,6 +744,8 @@ footer .copyright {
   margin-top: 4px;
   padding: 0 10px 0 8px;
 }
+
+
 
 /* Editor Demo */
 
