@@ -40,11 +40,25 @@ layout: default
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 
-  <div class="col-sm-2 hidden-xs">
+  <div class="ae-features-sidebar col-sm-2 hidden-xs">
+    <p class="feature-target-header">Buttons</p>
     <nav class="ae-docs-sidebar">
       <ul class="nav ae-docs-sidenav">
         <% for example in @getCollection("features").toJSON(): %>
-          <% if example.category && example.index: %>
+          <% if example.index && example.target == 'buttons': %>
+            <li<% if example.title == @document.title: %> class="active"<% end %>>
+              <a href="<%= @getSiteUrl() %><%= example.url %>"><%= example.title %></a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </nav>
+
+    <p class="feature-target-header">Plugins</p>
+    <nav class="ae-docs-sidebar">
+      <ul class="nav ae-docs-sidenav">
+        <% for example in @getCollection("features").toJSON(): %>
+          <% if example.index && example.target == 'plugins': %>
             <li<% if example.title == @document.title: %> class="active"<% end %>>
               <a href="<%= @getSiteUrl() %><%= example.url %>"><%= example.title %></a>
             </li>
