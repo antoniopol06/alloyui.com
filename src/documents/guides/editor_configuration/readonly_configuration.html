@@ -6,9 +6,9 @@ layout: guide
 order: 5
 parent: Editor Configuration
 title: ReadOnly Configuration
-description: Changing the default mode of the editor. ReadOnly is a property that it allows you enable or disable AlloyEditor.
+description: Changing editor´s behavior. ReadOnly is a property that it allows you enable or disable AlloyEditor.
 ---
-<h4 class="guide-step">Passing configuration options to the buttons</h4>
+<h4 class="guide-step">Passing readOnly configuration option to the editor</h4>
 
 <span class="code-header">The readOnly configuration is configured via a common <strong>readOnly</strong> property, like this:</span>
 <pre><code class="javascript">
@@ -19,7 +19,7 @@ description: Changing the default mode of the editor. ReadOnly is a property tha
 
 <p>The <code>readOnly</code> is the property which contains a boolean value. <code>true</code> means that editor is disabled and link element (<i>a tag</i>) works as default behavior, and, <code>false</code> means that editor is enabled to modify the text.
 
-<p>This property is available to be changed at anytime using the following code</p>
+<p>This property is available to be changed at anytime using the following code: </p>
 <pre><code class="javascript">
 	editor.setReadOnly([true|false]);
 </code></pre>
