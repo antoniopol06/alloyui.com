@@ -5,21 +5,20 @@ target: user
 layout: guide
 order: 5
 parent: Editor Configuration
-title: ReadOnly Configuration
-description: Changing editor´s behavior. ReadOnly is a property that it allows you enable or disable AlloyEditor.
+title: Switching the editor to work in "read only" mode
+description: AlloyEditor may be set to work in "read only" mode. If set to true, changing the content will be not possible and clicking on a link will navigate to its URL.
 ---
-<h4 class="guide-step">Passing readOnly configuration option to the editor</h4>
+<h4 class="guide-step">Passing "readOnly" configuration property to the editor</h4>
 
-<span class="code-header">The readOnly configuration is configured via a common <strong>readOnly</strong> property, like this:</span>
-<pre><code class="javascript">
-	var editor = AlloyEditor.editable('editable', {
-    	readOnly: [true|false]
+<span class="code-header">The "readOnly" mode can be set by passing the <strong>readOnly</strong> property, with value true:</span>
+<pre><code class="javascript">var editor = AlloyEditor.editable('editable', {
+    	readOnly: true
 	});
 </code></pre>
 
-<p>The <code>readOnly</code> is the property which contains a boolean value. <code>true</code> means that editor is disabled and link element (<i>a tag</i>) works as default behavior, and, <code>false</code> means that editor is enabled to modify the text.
+<p>The value of the <code>readOnly</code> property might be `true` or `false`. If set to <code>true</code> this means changes to the content won't be possible and clicking on a link will navigate to its URL instead to open a dialog for changing the URL of the link.
 
-<p>This property is available to be changed at anytime using the following code: </p>
-<pre><code class="javascript">
-	editor.setReadOnly([true|false]);
+<p>This behavior might be changed any time using the following code: </p>
+<pre><code class="javascript">var nativeEditor = editor.get('nativeEditor');
+	nativeEditor.setReadOnly(true);
 </code></pre>
