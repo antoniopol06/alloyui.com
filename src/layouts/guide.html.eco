@@ -34,9 +34,18 @@ layout: default
     <nav class="ae-docs-sidebar">
       <ul class="nav ae-docs-sidenav">
         <% for tutorial in @getCollection("guides").toJSON(): %>
-          <% if tutorial.target == "user": %>
-            <li<% if tutorial.title == @document.title: %> class="active"<% end %>>
+          <% if tutorial.target == "user" && !tutorial.parent: %>
+            <li<% if tutorial.title == @document.title || (tutorial.hasChildren && @document.url.indexOf("/" + tutorial.childrenPath + "/") != -1) : %> class="active"<% end %>>
               <a href="<%= @getSiteUrl() %><%= tutorial.url %>"><%= tutorial.title %></a>
+                <% if tutorial.hasChildren : %>
+                  <ul class="nav ae-docs-sub-sidenav">
+                    <% for child in @getFilesAtPath({relativeOutDirPath: 'guides/' + tutorial.childrenPath + '/'}).toJSON(): %>
+                        <li<% if child.title == @document.title: %> class="active"<% end %>>
+                          <a href="<%= @getSiteUrl() %><%= child.url %>"><%= child.title %></a>
+                        </li>
+                    <% end %>
+                  </ul>
+                <% end %>
             </li>
           <% end %>
         <% end %>
@@ -47,7 +56,7 @@ layout: default
     <nav class="ae-docs-sidebar">
       <ul class="nav ae-docs-sidenav">
         <% for tutorial in @getCollection("guides").toJSON(): %>
-          <% if tutorial.target == "developer": %>
+          <% if tutorial.target == "developer" && !tutorial.parent: %>
             <li<% if tutorial.title == @document.title || (tutorial.hasChildren && @document.url.indexOf("/" + tutorial.childrenPath + "/") != -1): %> class="active"<% end %>>
               <a href="<%= @getSiteUrl() %><%= tutorial.url %>"><%= tutorial.title %></a>
                 <% if tutorial.hasChildren : %>
