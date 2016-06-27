@@ -1,0 +1,102 @@
+---
+category: Guides
+
+target: developer
+layout: guide
+order: 10
+parent: Create
+title: Create dropdown buttons
+description: Creating buttons that use dropdown button.
+---
+<h4 class="guide-step">How Dropdown button works</h4>
+
+<p>Dropdown button uses <i>focus manager widget</i> (The use of widgets are mentioned in <a href="/guides/create/create_buttons">create buttons guide</a>) that allows the dropdown´s behavior</p>
+
+<p>The behavior is set by these props component: </p>
+
+<pre>
+	<code class="javascript">
+	getDefaultProps: function() {
+        return {
+            circular: false,
+            descendants: '.ae-toolbar-element',
+            keys: {
+                dismiss: [27],
+                dismissNext: [39],
+                dismissPrev: [37],
+                next: [40],
+                prev: [38]
+            }
+        };
+	}
+   </code>
+</pre>
+
+<p><b>Circular</b>: Boolean. <i>True</i> value allow you to pass through the options with the related keycode (next and prev), when you reach the last item using next key, the next option using the same key is the first option and viceversa. <i>False</i> value means that when you reach the last item using next key, you need to use prev key to navigate through the previous options.</p>
+
+<p><b>Descendants</b>: String. The CSS selector used to define the elements that should be handled by keycodes.</p>
+
+<p><b>Keys</b>: Object. This object contains keycodes to handle the navigation through the options.</p>
+
+<p><i>Dismiss</i> key cancels the dropdown and the toolbar return to the previous state.</p>
+
+<p><i>DismissNext</i> | <i>DismissPrev</i> keys cancel the dropdown but the navigation continues to the next|previous button of the toolbar.</p>
+
+<p><i>Next</i> | <i>Prev</i> keys allow you to navigate between dropdown options.</p>
+
+<h4 class="guide-step">Creating button with dropdown</h4>
+
+<p>Adding <i>Dropdown widget</i> to pass toggleDropdown method into onDismiss property to handle the dimiss keycodes that you set before.</p>
+
+<p>Passing the options as a children of AlloyEditor.ButtonDropdown component to render the dropdown options. This children should be li elements.</p>
+
+<p>Handle click to add logic to the options of the dropdown (default values).</p>
+
+<pre>
+	<code class="javascript">
+		var MyOwnButton = React.createClass({
+        	mixins: [AlloyEditor.WidgetDropdown],
+
+        ...
+        ...
+
+        	render: function() {
+        		return(
+        			<AlloyEditor.ButtonDropdown onDismiss={this.props.toggleDropdown}>
+                    	{this.createList()}
+                	</AlloyEditor.ButtonDropdown>
+        		)
+        	}
+
+		...
+		...
+
+			createList: function() {
+				var options = ['add', 'edit', 'remove'];
+
+				var liOptions = options.map(function(option) {
+
+					return (
+						<li key={option} role='option'>
+							<button
+								className='ae-toolbar-element'
+								data-value={option}
+								onClick={yourHandleClickFunction}
+							>
+								{option}
+							</button>
+						</li>
+					)
+				});
+
+				return liOptions;
+			}
+		});
+
+	</code>
+</pre>
+
+<p class="guide-note">
+	You can see the following button that use dropdown: <a href="/features/linkautocomplete">Link autocomplete</a>
+</p>
+
