@@ -8,13 +8,13 @@ order: 2
 title: How to use it?
 description: The section below assumes that you are using the default UI, which is built using React. The AlloyEditor core is fully separated from the UI and creating another one based on any other framework is very easy.
 ---
-<h4 class="guide-step">1 - Include AlloyEditor's CSS in the page</h4>
+<h4 class="guide-step">1. Add AlloyEditor's CSS to the page:</h4>
 
 <pre><code class="html">&lt;link href="alloy-editor/assets/alloy-editor-ocean-min.css" rel="stylesheet"&gt;&lt;/link&gt;</code></pre>
 
-<h4 class="guide-step">2 - Include AlloyEditor's JS in the page</h4>
+<h4 class="guide-step">2. Add AlloyEditor's JS to the page:</h4>
 
-There are a <strong>few ways</strong> to include the editor on the page:
+There are a <strong>few ways</strong> to add the editor to the page:
 
 <section class="guide-nested">
   <span class="code-header">Add the whole editor with all UI on the page</span>
@@ -30,8 +30,11 @@ There are a <strong>few ways</strong> to include the editor on the page:
   <pre><code class="html">&lt;script src="alloy-editor/alloy-editor-core-min.js"&gt;&lt;/script&gt;</code></pre>
 </section>
 
-<h4 class="guide-step">3 - Invoke the static <code>editable</code> method of AlloyEditor</h4>
+<h4 class="guide-step">3. Invoke the static <code>editable</code> method of AlloyEditor:</h4>
 
 <pre><code class="javascript">AlloyEditor.editable('myContentEditable');</code></pre>
+
+<h4 class="guide-step">4. To retrieve the content from the editor, please do:<pre><code class="javascript">var alloyEditor = AlloyEditor.editable('myContentEditable');
+var content = alloyEditor.get('nativeEditor').getData();</code></pre></h4>
 
 <p class="guide-note">Please, check our <a href="/guides/toolbar_configuration">Toolbar Configuration Guide</a> and the <a href="/features">Features List</a> to know how to customize your editor and get the most out of it!</p>
