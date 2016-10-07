@@ -15,7 +15,7 @@ module.exports = {
 
         alloyeditor: {
             // AlloyEditor version
-            version: '1.2.3'
+            version: '1.2.4'
         },
 
         /* -----------------------------
