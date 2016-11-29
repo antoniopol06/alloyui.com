@@ -1,5 +1,5 @@
 /**
- * AlloyEditor v1.2.2
+ * AlloyEditor v1.2.4
  *
  * Copyright 2014-present, Liferay, Inc.
  * All rights reserved.
@@ -19,7 +19,7 @@
 
     'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function () {
     'use strict';
@@ -20553,7 +20553,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 })();
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function () {
     'use strict';
@@ -20911,13 +20911,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             bookmarkNodeEl.style.display = 'inline-block';
 
-            var region = new CKEDITOR.dom.element(bookmarkNodeEl).getClientRect();
+            region = new CKEDITOR.dom.element(bookmarkNodeEl).getClientRect();
 
             bookmarkNodeEl.parentNode.removeChild(bookmarkNodeEl);
 
             var scrollPos = new CKEDITOR.dom.window(window).getScrollPosition();
 
-            region.bottom = scrollPos.y + region.bottom, region.left = scrollPos.x + region.left, region.right = scrollPos.x + region.right, region.top = scrollPos.y + region.top;
+            region.bottom = scrollPos.y + region.bottom;
+            region.left = scrollPos.x + region.left;
+            region.right = scrollPos.x + region.right;
+            region.top = scrollPos.y + region.top;
 
             return region;
         },
@@ -21698,10 +21701,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             var uiTasksTimeout = editor.config.uicore ? editor.config.uicore.timeout : 50;
 
-            var handleAria = CKEDITOR.tools.debounce(function (event) {
-                ariaElement.innerHTML = ariaState.join('. ');
-            }, uiTasksTimeout);
-
             var handleUI = CKEDITOR.tools.debounce(function (event) {
                 ariaState = [];
 
@@ -21717,10 +21716,34 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             }, uiTasksTimeout);
 
+            var handleAria = CKEDITOR.tools.debounce(function (event) {
+                ariaElement.innerHTML = ariaState.join('. ');
+            }, uiTasksTimeout);
+
+            var handleMouseLeave = CKEDITOR.tools.debounce(function (event) {
+                var aeUINodes = document.querySelectorAll('.ae-ui');
+
+                var found;
+
+                for (var i = 0; i < aeUINodes.length; i++) {
+                    if (aeUINodes[i].contains(event.data.$.relatedTarget)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    handleUI(event);
+                }
+            }, uiTasksTimeout);
+
             var handleBlur = function handleBlur(event) {
-                event.removeListener('blur', handleBlur);
-                event.removeListener('keyup', handleUI);
-                event.removeListener('mouseup', handleUI);
+                var editable = editor.editable();
+
+                editable.removeListener('blur', handleBlur);
+                editable.removeListener('keyup', handleUI);
+                editable.removeListener('mouseleave', handleMouseLeave);
+                editable.removeListener('mouseup', handleUI);
 
                 handleUI(event);
             };
@@ -21744,6 +21767,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     editable.attachListener(editable, 'blur', handleBlur);
                     editable.attachListener(editable, 'keyup', handleUI);
                     editable.attachListener(editable, 'mouseup', handleUI);
+                    editable.attachListener(editable, 'mouseleave', handleMouseLeave);
 
                     handleUI(event);
                 });
@@ -22454,9 +22478,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     var IMAGE_SNAP_TO_SIZE = 7;
 
-    var isWebkit = 'WebkitAppearance' in document.documentElement.style;
+    var isFirefox = 'MozAppearance' in document.documentElement.style;
+    var isWebKit = 'WebkitAppearance' in document.documentElement.style;
 
-    if (isWebkit) {
+    var enablePlugin = isWebKit || isFirefox;
+
+    if (isFirefox) {
+        // Disable the native image resizing
+        document.execCommand('enableObjectResizing', false, false);
+    }
+
+    if (enablePlugin) {
         // CSS is added in a compressed form
         CKEDITOR.addCss('img::selection{color:rgba(0,0,0,0)}img.ckimgrsz{outline:1px dashed #000}#ckimgrsz{position:absolute;width:0;height:0;cursor:default;z-index:10001}#ckimgrsz span{display:none;position:absolute;top:0;left:0;width:0;height:0;background-size:100% 100%;opacity:.65;outline:1px dashed #000}#ckimgrsz i{position:absolute;display:block;width:5px;height:5px;background:#fff;border:1px solid #000}#ckimgrsz i.active,#ckimgrsz i:hover{background:#000}#ckimgrsz i.br,#ckimgrsz i.tl{cursor:nwse-resize}#ckimgrsz i.bm,#ckimgrsz i.tm{cursor:ns-resize}#ckimgrsz i.bl,#ckimgrsz i.tr{cursor:nesw-resize}#ckimgrsz i.lm,#ckimgrsz i.rm{cursor:ew-resize}body.dragging-br,body.dragging-br *,body.dragging-tl,body.dragging-tl *{cursor:nwse-resize!important}body.dragging-bm,body.dragging-bm *,body.dragging-tm,body.dragging-tm *{cursor:ns-resize!important}body.dragging-bl,body.dragging-bl *,body.dragging-tr,body.dragging-tr *{cursor:nesw-resize!important}body.dragging-lm,body.dragging-lm *,body.dragging-rm,body.dragging-rm *{cursor:ew-resize!important}');
     }
@@ -22466,12 +22498,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      */
     CKEDITOR.plugins.add('ae_dragresize', {
         onLoad: function onLoad() {
-            if (!isWebkit) {
+            if (!enablePlugin) {
                 return;
             }
         },
         init: function init(editor) {
-            if (!isWebkit) {
+            if (!enablePlugin) {
                 return;
             }
 
@@ -22498,6 +22530,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         function selectionChange() {
             var selection = editor.getSelection();
+
             if (!selection) return;
             // If an element is selected and that element is an IMG
             if (selection.getType() !== CKEDITOR.SELECTION_NONE && selection.getStartElement().is('img')) {
@@ -22537,6 +22570,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         editor.on('beforeModeUnload', function self() {
             editor.removeListener('beforeModeUnload', self);
             resizer.hide();
+        });
+
+        editor.on('destroy', function () {
+            var resizeElement = document.getElementById('ckimgrsz');
+
+            if (resizeElement) {
+                resizeElement.remove();
+            }
+
+            if (isFirefox) {
+                document.execCommand('enableObjectResizing', false, true);
+            }
         });
 
         // Update the selection when the browser window is resized
@@ -22585,7 +22630,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         isHandle: function isHandle(el) {
             var handles = this.handles;
             for (var n in handles) {
-                if (handles[n] === el) return true;
+                if (handles[n] === el) {
+                    return true;
+                }
             }
             return false;
         },
@@ -23355,16 +23402,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         _checkEmptyData: function _checkEmptyData(event) {
             var editor = event.editor;
 
-            if (editor.getData() === '') {
-                var editorNode = new CKEDITOR.dom.element(editor.element.$);
+            var editorNode = new CKEDITOR.dom.element(editor.element.$);
 
-                // Despite getData() returns empty string, the content still may have
-                // data - an empty paragraph. This breaks the :empty selector in
-                // placeholder's CSS and placeholder does not appear.
-                // For that reason, we will intentionally remove any content from editorNode.
-                editorNode.setHtml('');
+            if (editor.getData() === '') {
 
                 editorNode.addClass(editor.config.placeholderClass);
+            } else {
+                editorNode.removeClass(editor.config.placeholderClass);
             }
         }
     });
@@ -25128,6 +25172,8 @@ CKEDITOR.tools.buildTableMap = function (table) {
                 },
 
                 _setValue: function _setValue(value) {
+                    this._cacheValue(value);
+
                     this.setState({
                         value: value
                     });
@@ -25227,7 +25273,7 @@ CKEDITOR.tools.buildTableMap = function (table) {
 })();
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function () {
     'use strict';
@@ -25911,6 +25957,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             AlloyEditor.Lang.mix(editor.config, config);
 
             editor.once('contentDom', function () {
+                if (editor.config.readOnly) {
+                    this._addReadOnlyLinkClickListener(editor);
+                }
+
                 var editable = editor.editable();
 
                 editable.addClass('ae-editable');
@@ -25942,6 +25992,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             if (nativeEditor) {
                 var editable = nativeEditor.editable();
+
                 if (editable) {
                     editable.removeClass('ae-editable');
 
@@ -25950,8 +26001,40 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     }
                 }
 
+                this._clearSelections();
+
                 nativeEditor.destroy();
             }
+        },
+
+        /**
+         * Clear selections from window object
+         *
+         * @protected
+         * @method _clearSelections
+         */
+        _clearSelections: function _clearSelections() {
+            var nativeEditor = this.get('nativeEditor');
+            var isMSSelection = typeof window.getSelection != 'function';
+
+            if (isMSSelection) {
+                nativeEditor.document.$.selection.empty();
+            } else {
+                nativeEditor.document.getWindow().$.getSelection().removeAllRanges();
+            }
+        },
+
+        /**
+         * Method to set default link behavior
+         *
+         * @protected
+         * @method _addReadOnlyLinkClickListener
+         * @param {Object} editor
+         */
+        _addReadOnlyLinkClickListener: function _addReadOnlyLinkClickListener(editor) {
+            editor.editable().on('click', this._defaultReadOnlyClickFn, this, {
+                editor: editor
+            });
         },
 
         /**
@@ -25970,13 +26053,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
                 if (link) {
                     var href = link.$.attributes.href ? link.$.attributes.href.value : null;
+
                     var target = link.$.attributes.target ? link.$.attributes.target.value : null;
 
-                    if (target && href) {
-                        window.open(href, target);
-                    } else if (href) {
-                        window.location.href = href;
-                    }
+                    this._redirectLink(href, target);
                 }
             }
         },
@@ -26001,11 +26081,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
          */
         _onReadOnlyChangeFn: function _onReadOnlyChangeFn(event) {
             if (event.editor.readOnly) {
-                event.editor.editable().on('click', this._defaultReadOnlyClickFn, this, {
-                    editor: event.editor
-                });
+                this._addReadOnlyLinkClickListener(event.editor);
             } else {
                 event.editor.editable().removeListener('click', this._defaultReadOnlyClickFn);
+            }
+        },
+
+        /**
+         * Redirects the browser to a given link
+         *
+         * @protected
+         * @method _redirectLink
+         * @param {string} href The href to take the browser to
+         * @param {string=} target Specifies where to display the link
+         */
+        _redirectLink: function _redirectLink(href, target) {
+            if (target && href) {
+                window.open(href, target);
+            } else if (href) {
+                window.location.href = href;
             }
         },
 
@@ -26559,11 +26653,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // Allows validating props being passed to the component.
         propTypes: {
             /**
-             * The style the button should handle as described by http://docs.ckeditor.com/#!/api/CKEDITOR.style
+             * The style the button should handle. Allowed values are:
+             * - Object as described by http://docs.ckeditor.com/#!/api/CKEDITOR.style.
+             * - String pointing to an object inside the editor instance configuration. For example, `style = 'coreStyles_bold'` will try to
+             * retrieve the style object from `editor.config.coreStyles_bold`. Nested properties such as `style = 'myplugin.myConfig.myStyle'`
+             * are also supported and will try to retrieve the style object from the editor configuration as well.
              *
-             * @property {Object} style
+             * @property {Object|String} style
              */
-            style: React.PropTypes.object
+            style: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.string])
         },
 
         /**
@@ -26572,7 +26670,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
          * @method componentWillMount
          */
         componentWillMount: function componentWillMount() {
-            this._style = new CKEDITOR.style(this.props.style);
+            var Lang = AlloyEditor.Lang;
+            var style = this.props.style;
+
+            if (Lang.isString(style)) {
+                var parts = style.split('.');
+                var currentMember = this.props.editor.get('nativeEditor').config;
+                var property = parts.shift();
+
+                while (property && Lang.isObject(currentMember) && Lang.isObject(currentMember[property])) {
+                    currentMember = currentMember[property];
+                    property = parts.shift();
+                }
+
+                if (Lang.isObject(currentMember)) {
+                    style = currentMember;
+                }
+            }
+
+            this._style = new CKEDITOR.style(style);
         },
 
         /**
@@ -27304,6 +27420,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             var selectionData = eventPayload.selectionData;
 
+            var nativeEvent = eventPayload.nativeEvent;
+
             var pos = {
                 x: eventPayload.nativeEvent.pageX,
                 y: selectionData.region.top
@@ -27312,6 +27430,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var direction = selectionData.region.direction;
 
             var endRect = selectionData.region.endRect;
+
             var startRect = selectionData.region.startRect;
 
             if (endRect && startRect && startRect.top === endRect.top) {
@@ -27323,19 +27442,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             // If we have the point where user released the mouse, show Toolbar at this point
             // otherwise show it on the middle of the selection.
+
             if (pos.x && pos.y) {
                 x = this._getXPoint(selectionData, pos.x);
 
                 if (direction === CKEDITOR.SELECTION_BOTTOM_TO_TOP) {
                     y = Math.min(pos.y, selectionData.region.top);
                 } else {
-                    y = Math.max(pos.y, selectionData.region.bottom);
+                    y = Math.max(pos.y, this._getYPoint(selectionData, nativeEvent));
                 }
             } else {
                 x = selectionData.region.left + selectionData.region.width / 2;
 
                 if (direction === CKEDITOR.SELECTION_TOP_TO_BOTTOM) {
-                    y = selectionData.region.bottom;
+
+                    y = this._getYPoint(selectionData, nativeEvent);
                 } else {
                     y = selectionData.region.top;
                 }
@@ -27381,6 +27502,32 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
 
             return x;
+        },
+
+        /**
+         * Returns the position of the Widget.
+         *
+         * @method _getYPoint
+         * @protected
+         * @param {Object} selectionData The data about the selection in the editor as
+         * returned from {{#crossLink "CKEDITOR.plugins.ae_selectionregion/getSelectionData:method"}}{{/crossLink}}
+         * @param {Object} nativeEvent The data about event is fired
+         * @return {Number} The calculated Y point in page coordinates.
+         */
+        _getYPoint: function _getYPoint(selectionData, nativeEvent) {
+            var y = 0;
+
+            if (selectionData && nativeEvent) {
+                var elementTarget = new CKEDITOR.dom.element(nativeEvent.target);
+
+                if (elementTarget.$ && elementTarget.getStyle('overflow') === 'auto') {
+                    y = nativeEvent.target.offsetTop + nativeEvent.target.offsetHeight;
+                } else {
+                    y = selectionData.region.bottom;
+                }
+            }
+
+            return y;
         }
     };
 
@@ -27724,9 +27871,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     fn: 'execCommand',
                     keys: CKEDITOR.CTRL + 66 /*B*/
                 },
-                style: {
-                    element: 'strong'
-                }
+                style: 'coreStyles_bold'
             };
         },
 
@@ -29361,9 +29506,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         },
 
         /**
-         * On input change, reads the chosen file and creates an img element with src the image data as Data URI.
-         * Then, fires an {{#crossLink "ButtonImage/imageAdd:event"}}{{/crossLink}} via CKEditor's
-         * message system. The passed params will be:
+         * On input change, reads the chosen file and fires an event `beforeImageAdd` with the image which will be added
+         * to the content. The image file will be passed in the `imageFiles` property.
+         * If any of the listeners returns `false` or cancels the event, the image won't be added to the content.
+         * Otherwise, an event `imageAdd` will be fired with the inserted element into the editable area.
+         * The passed params will be:
          * - `el` - the created img element
          * - `file` - the original image file from the input element
          *
@@ -29385,18 +29532,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             reader.onload = function (event) {
                 var editor = this.props.editor.get('nativeEditor');
 
-                var el = CKEDITOR.dom.element.createFromHtml('<img src="' + event.target.result + '">');
+                var result = editor.fire('beforeImageAdd', {
+                    imageFiles: file
+                });
 
-                editor.insertElement(el);
+                if (!!result) {
+                    var el = CKEDITOR.dom.element.createFromHtml('<img src="' + event.target.result + '">');
 
-                editor.fire('actionPerformed', this);
+                    editor.insertElement(el);
 
-                var imageData = {
-                    el: el,
-                    file: file
-                };
+                    editor.fire('actionPerformed', this);
 
-                editor.fire('imageAdd', imageData);
+                    var imageData = {
+                        el: el,
+                        file: file
+                    };
+
+                    editor.fire('imageAdd', imageData);
+                }
             }.bind(this);
 
             reader.readAsDataURL(file);
@@ -29405,10 +29558,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
 
         /**
-         * Fired when an image file is added as an element to the editor.
+         * Fired before adding images to the editor.
+         *
+         * @event beforeImageAdd
+         * @param {Array} imageFiles Array of image files
+         */
+
+        /**
+         * Fired when an image is being added to the editor successfully.
          *
          * @event imageAdd
-         * @param {CKEDITOR.dom.element} el The created image with src as Data URI.
+         * @param {CKEDITOR.dom.element} el The created image with src as Data URI
+         * @param {File} file The image file
          */
     });
 
@@ -29574,9 +29735,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     fn: 'execCommand',
                     keys: CKEDITOR.CTRL + 73 /*I*/
                 },
-                style: {
-                    element: 'em'
-                }
+                style: 'coreStyles_italic'
             };
         },
 
@@ -29933,11 +30092,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
          */
         getDefaultProps: function getDefaultProps() {
             return {
-                defaultLinkTarget: '',
-                showTargetSelector: true,
                 appendProtocol: true,
                 autocompleteUrl: '',
                 circular: true,
+                customIndexStart: true,
+                defaultLinkTarget: '',
                 descendants: '.ae-toolbar-element',
                 keys: {
                     dismiss: [27],
@@ -29946,7 +30105,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     next: [40],
                     prev: [38]
                 },
-                customIndexStart: true
+                showTargetSelector: true
             };
         },
 
@@ -29985,6 +30144,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             };
 
             var targetSelector = {
+                allowedTargets: this.props.allowedTargets,
                 editor: this.props.editor,
                 handleLinkTargetChange: this._handleLinkTargetChange,
                 selectedTarget: this.state.linkTarget || AlloyEditor.Strings.linkTargetDefault
@@ -30006,13 +30166,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
 
                 var autocompleteDropdownProps = {
+                    autocompleteSelected: this.state.autocompleteSelected,
                     data: dataFn,
                     editor: this.props.editor,
                     handleLinkAutocompleteClick: this._handleLinkAutocompleteClick,
                     onDismiss: this.props.toggleDropdown,
-                    term: this.state.linkHref,
-                    autocompleteSelected: this.state.autocompleteSelected,
-                    setAutocompleteState: this._setAutocompleteState
+                    setAutocompleteState: this._setAutocompleteState,
+                    term: this.state.linkHref
                 };
 
                 autocompleteDropdownProps = this.mergeDropdownProps(autocompleteDropdownProps, AlloyEditor.ButtonLinkAutocompleteList.key);
@@ -30034,7 +30194,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     React.createElement(AlloyEditor.ButtonLinkTargetEdit, targetSelector),
                     React.createElement(
                         'div',
-                        { className: 'ae-container-input xxl' },
+                        { className: 'ae-container-input flexible' },
                         React.createElement('input', { className: 'ae-input', onChange: this._handleLinkHrefChange, onKeyDown: this._handleKeyDown, placeholder: AlloyEditor.Strings.editLink, ref: 'linkInput', type: 'text', value: this.state.linkHref }),
                         autocompleteDropdown
                     ),
@@ -30305,9 +30465,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var buttonTargetsList;
 
             var handleLinkTargetChange = this.props.handleLinkTargetChange;
+            var allowedLinkTargets = this.props.allowedTargets;
 
             if (this.props.expanded) {
-                buttonTargetsList = React.createElement(AlloyEditor.ButtonTargetList, { editor: this.props.editor, onDismiss: this.props.toggleDropdown, handleLinkTargetChange: handleLinkTargetChange });
+                buttonTargetsList = React.createElement(AlloyEditor.ButtonTargetList, { editor: this.props.editor, onDismiss: this.props.toggleDropdown, allowedLinkTargets: allowedLinkTargets, handleLinkTargetChange: handleLinkTargetChange });
             }
 
             return React.createElement(
@@ -31240,9 +31401,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         getDefaultProps: function getDefaultProps() {
             return {
                 command: 'strike',
-                style: {
-                    element: 's'
-                }
+                style: 'coreStyles_strike'
             };
         },
 
@@ -31599,19 +31758,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
 
             return React.createElement(
-                'div',
-                { className: 'ae-dropdown ae-arrow-box ae-arrow-box-top-left', onFocus: this.focus, onKeyDown: this.handleKey, tabIndex: '0' },
-                React.createElement(
-                    'ul',
-                    { className: 'ae-listbox', role: 'listbox' },
-                    removeStylesItem,
-                    React.createElement(AlloyEditor.ButtonsStylesListHeader, { name: AlloyEditor.Strings.blockStyles, styles: this._blockStyles }),
-                    this._renderStylesItems(this._blockStyles),
-                    React.createElement(AlloyEditor.ButtonsStylesListHeader, { name: AlloyEditor.Strings.inlineStyles, styles: this._inlineStyles }),
-                    this._renderStylesItems(this._inlineStyles),
-                    React.createElement(AlloyEditor.ButtonsStylesListHeader, { name: AlloyEditor.Strings.objectStyles, styles: this._objectStyles }),
-                    this._renderStylesItems(this._objectStyles)
-                )
+                AlloyEditor.ButtonDropdown,
+                this.props,
+                removeStylesItem,
+                React.createElement(AlloyEditor.ButtonsStylesListHeader, { name: AlloyEditor.Strings.blockStyles, styles: this._blockStyles }),
+                this._renderStylesItems(this._blockStyles),
+                React.createElement(AlloyEditor.ButtonsStylesListHeader, { name: AlloyEditor.Strings.inlineStyles, styles: this._inlineStyles }),
+                this._renderStylesItems(this._inlineStyles),
+                React.createElement(AlloyEditor.ButtonsStylesListHeader, { name: AlloyEditor.Strings.objectStyles, styles: this._objectStyles }),
+                this._renderStylesItems(this._objectStyles)
             );
         },
 
@@ -31685,7 +31840,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             /**
              * Indicates whether the remove styles item should appear in the styles list.
              *
-             * @property {Boolean} expanded
+             * @property {Boolean} showRemoveStylesItem
              */
             showRemoveStylesItem: React.PropTypes.bool,
 
@@ -31896,9 +32051,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         getDefaultProps: function getDefaultProps() {
             return {
                 command: 'subscript',
-                style: {
-                    element: 'sub'
-                }
+                style: 'coreStyles_subscript'
             };
         },
 
@@ -31987,9 +32140,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         getDefaultProps: function getDefaultProps() {
             return {
                 command: 'superscript',
-                style: {
-                    element: 'sup'
-                }
+                style: 'coreStyles_superscript'
             };
         },
 
@@ -33322,9 +33473,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     fn: 'execCommand',
                     keys: CKEDITOR.CTRL + 85 /*U*/
                 },
-                style: {
-                    element: 'u'
-                }
+                style: 'coreStyles_underline'
             };
         },
 
@@ -33613,10 +33762,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
                 if (region) {
                     var domNode = ReactDOM.findDOMNode(this);
+
                     var domElement = new CKEDITOR.dom.element(domNode);
 
                     var startRect = region.startRect || region;
-                    var clientRect = this.props.editor.get('nativeEditor').editable().getClientRect();
+
+                    var nativeEditor = this.props.editor.get('nativeEditor');
+
+                    var clientRect = nativeEditor.editable().getClientRect();
 
                     var offsetLeft;
 
@@ -33629,7 +33782,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     }
 
                     domNode.style.left = offsetLeft;
-                    domNode.style.top = Math.floor(region.top - domNode.offsetHeight / 2 + startRect.height / 2) + 'px';
+
+                    domNode.style.top = Math.floor((region.bottom + region.top) / 2) + 'px';
+
+                    if (nativeEditor.element.getStyle('overflow') !== 'auto') {
+                        domNode.style.top = Math.floor(region.top - domNode.offsetHeight / 2 + startRect.height / 2) + 'px';
+                    } else {
+                        domNode.style.top = Math.floor(nativeEditor.element.$.offsetTop + startRect.height / 2 - domNode.offsetHeight / 2) + 'px';
+                    }
+
                     domNode.style.opacity = 1;
 
                     domElement.removeClass('ae-arrow-box');
