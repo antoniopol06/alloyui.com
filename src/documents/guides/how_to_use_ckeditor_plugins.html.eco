@@ -4,7 +4,8 @@ category: Guides
 target: user
 layout: guide
 order: 5
-
+hasChildren: true
+childrenPath: ckeditor_plugins
 title: How to use CKEditor Plugins?
 description: Is there an existing CKEditor plugin you like? Chances are you will be able to use it with AlloyEditor as well!
 ---

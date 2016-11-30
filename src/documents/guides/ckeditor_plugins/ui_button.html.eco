@@ -1,0 +1,71 @@
+---
+category: Guides
+
+target: user
+layout: guide
+order: 1
+parent: How to use CKEditor Plugins?
+title: UI Button
+description: There are some CKEDITOR plugins that it add button panel through their UI. This tutorial is about using this kind of plugins.
+---
+<h4 class="guide-step">Example to use 'UNDO' button</h4>
+<span class="code-header">In this case, Undo CKEDITOR plugin exists into AlloyEditor core, but, if the plugin does not exist into AlloyEditor core, you can download it and, after that,
+you can paste it into <strong>plugins folder</strong>
+</span>
+<p>
+	<div class="alert alert-warning" role="alert">
+		<i class="glyphicon glyphicon-exclamation-sign"></i>
+		Keep in mind, if this plugin has dependencies, we need to dowload and to configure them too.
+	</div>
+</p>
+
+<h4 class="guide-step">What CKEDITOR UI is used by plugin?</h4>
+<p>This button is given by 'undo' CKEDITOR plugin. <a alt="code source of undo plugin" href="https://github.com/ckeditor/ckeditor-dev/blob/master/plugins/undo/plugin.js#L105-L109">It´s code source</a> contains this part of code: </p>
+<pre><code class="javascript">
+	editor.ui.addButton( 'Undo', {
+					label: editor.lang.undo.undo,
+					command: 'undo',
+					toolbar: 'undo,10'
+				} );
+</code></pre>
+<p>This plugin uses <strong>editor.ui.addButton</strong>. Also, CKEDITOR plugins can use the following code to add buttons:</p>
+<pre><code class="javascript">
+	editor.ui.add(name, CKEDITOR.UI_BUTTON, definition)
+</code></pre>
+
+<p>Both of the ways are correct and it means that we need an AlloyEditor adapter to use this kind of CKEDITOR plugins.</p>
+
+
+<h4 class="guide-step">ae_buttonbridge AlloyEditor plugin</h4>
+<p>AlloyEditor provides a plugin that works as an adapter for CKEditor UI features generating compatible buttons</p>
+<pre><code class="javascript">
+	AlloyEditor.editable('myContentEditable', {
+		extraPlugins: AlloyEditor.Core.ATTRS.extraPlugins.value +
+			',ae_buttonbridge,undo'
+	});
+</code></pre>
+<p><strong>AlloyEditor.Core.ATTRS.extraPlugins.value</strong> is used to keep current extraPlugins that AlloyEditor use, but you can avoid that to set your plugins there. After this step, this plugin will work, but AlloyEditor will not show the button yet.
+
+<h4 class="guide-step">Adding 'Undo' button to AlloyEditor toolbar</h4>
+<p>Following <a alt="toolbar configuration" href="guides/ckeditor_plugins/ui_button">toolbar configuration</a>, we can set toolbar buttons with 'Undo' button: </p>
+<pre><code class="javascript">
+	var selections = AlloyEditor.Selections;
+
+	//index of text toolbar
+	selections[3].buttons.push('Undo');
+
+	AlloyEditor.editable('myContentEditable', {
+		extraPlugins: AlloyEditor.Core.ATTRS.extraPlugins.value +
+			',ae_buttonbridge,undo',
+		toolbars: {
+			styles: {
+				selections: selections,
+				tabIndex: 1
+			}
+		}
+
+	});
+</code></pre>
+<div class="thumbnail">
+	<img class="img img-polaroid" src="<%= @getAssetsUrl() %>/img/guides/ckeditor_ui_button.png">
+</div>
