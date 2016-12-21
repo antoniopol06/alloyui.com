@@ -1,0 +1,25 @@
+
+{namespace updatesIndex}
+
+/**
+ * @param page
+ */
+{template .render}
+	{call main.render data="all"}
+		{param content kind="html"}
+			<div>
+				<header class="header">
+					<div class="container">
+						<h1 class="header-title">Updates</h1>
+
+						<h1 class="header-subtitle">Check out what's new.</h1>
+					</div>
+				</header>
+
+				{call SSGUpdates.render}
+					{param updates: $page.updates /}
+				{/call}
+			</div>
+		{/param}
+	{/call}
+{/template}

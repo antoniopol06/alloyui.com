@@ -1,0 +1,61 @@
+
+{namespace docsUseSkinsHtml}
+
+/**
+ *
+ */
+{template .render}
+	{call guide.render data="all"}
+		{param content kind="html"}
+			<h6>Skins in AlloyEditor are a very powerful feature that allows you to seamlessly integrate the editor inside your app.</h6>
+<article id="article1">
+<h2>Skin Architecture</h2>
+<p>AlloyEditor skins are organized according to the following principles:</p>
+<section class="guide-nested">
+  <h4 class="guide-step">Variables</h4>
+  <p>Style values are parameterized as much as possible. This allows skins to fully extend others just by changing a small set of variable values.</p>
+</section>
+<section class="guide-nested">
+  <h4 class="guide-step">Components</h4>
+  <p>A skin is created by combining one or more components together. Different skins may use different components, so irrelevant styling can be easily stripped out.</p>
+</section>
+<section class="guide-nested">
+  <h4 class="guide-step">Structure vs Skin</h4>
+  <p>All styling is separated into structure and skin. Structure represents everything that affects the sizing and position of the elements. Meanwhile, skin represents all the purely cosmetic changes.</p>
+</section>
+</article>
+<article id="article2">
+<h2>Skins Overview</h2>
+<p>At this moment, you can use any of the following skins out of the box:</p>
+<section class="guide-nested">
+  <h4 class="guide-step">Ocean (default)</h4>
+  <div class="thumbnail">
+    <img class="img img-polaroid" src="<%= @getAssetsUrl() %>/img/guides/skin_ocean.png">
+  </div>
+</section>
+<section class="guide-nested">
+  <h4 class="guide-step">Atlas</h4>
+  <div class="thumbnail">
+    <img class="img img-polaroid" src="<%= @getAssetsUrl() %>/img/guides/skin_atlas.png">
+  </div>
+<p><span class="code-header">Add the following external stylesheet to use <b>Atlas Skin</b></span></p>
+<pre><code class="language-html">&lt;link href=&quot;alloy-editor/assets/alloy-editor-atlas-min.css&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+</section>
+<section class="guide-nested">
+  <h4 class="guide-step">Moono</h4>
+  <div class="thumbnail">
+    <img class="img img-polaroid" src="<%= @getAssetsUrl() %>/img/guides/skin_moono.png">
+  </div>
+<p><span class="code-header">
+Add the following external stylesheet to use <b>Moono Skin</b>
+</span></p>
+<pre><code class="language-html">&lt;link href=&quot;alloy-editor/assets/alloy-editor-moono-min.css&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+</section>
+<p class="guide-note">Check out <a href="/docs/create/create_skin.html">this guide</a> to know more about how to create your own skin.</p>
+</article>
+
+		{/param}
+	{/call}
+{/template}

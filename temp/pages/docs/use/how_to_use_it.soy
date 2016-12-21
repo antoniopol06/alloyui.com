@@ -1,0 +1,46 @@
+
+{namespace docsUseHowToUseItHtml}
+
+/**
+ *
+ */
+{template .render}
+	{call guide.render data="all"}
+		{param content kind="html"}
+			<h6>The section below assumes that you are using the default UI, which is built using React. The AlloyEditor core is fully separated from the UI and creating another one based on any other framework is very easy.</h6>
+<article id="article1">
+<h2>Add AlloyEditor's CSS to the page</h2>
+<pre><code class="language-html">&lt;link href=&quot;alloy-editor/assets/alloy-editor-ocean-min.css&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+</code></pre>
+</article>
+<article id="article2">
+<h2>Add AlloyEditor's JS to the page</h2>
+<p>There are a <strong>few ways</strong> to add the editor to the page:</p>
+<section>
+  <span>Add the whole editor with all UI on the page</span>
+<pre><code class="language-html">&lt;script src=&quot;alloy-editor/alloy-editor-all-min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><span>Add it on the page separating the CKEditor code from AlloyEditor. This is useful if in your project you already use CKEditor.</span></p>
+  <pre><code><script src="alloy-editor/alloy-editor-no-ckeditor-min.js"></script></code></pre>
+<p><span>Add it on the page separating the React code from AlloyEditor. This is useful if you already use React in your project.</span></p>
+  <pre><code><script src="alloy-editor/alloy-editor-no-react-min.js"></script></code></pre>
+<p><span>If you use both React and CKEditor on your page, then just include AlloyEditor's core</span></p>
+<pre><code class="language-html">&lt;script src=&quot;alloy-editor/alloy-editor-core-min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</section>
+</article>
+<article id="article3">
+<h2>Invoke the static editable method of AlloyEditor</h2>
+<pre><code class="language-js">AlloyEditor.editable('myContentEditable');
+</code></pre>
+</article>
+<article id="article4">
+<h2>Retrieve the content from the editor</h2>
+<pre><code class="language-js">var alloyEditor = AlloyEditor.editable('myContentEditable');
+
+var content = alloyEditor.get('nativeEditor').getData();
+</code></pre>
+</article>
+		{/param}
+	{/call}
+{/template}

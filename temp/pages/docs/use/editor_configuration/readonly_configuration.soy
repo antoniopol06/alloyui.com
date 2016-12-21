@@ -1,0 +1,26 @@
+
+{namespace docsUseEditorConfigurationReadonlyConfigurationHtml}
+
+/**
+ *
+ */
+{template .render}
+	{call guide.render data="all"}
+		{param content kind="html"}
+			<h4>AlloyEditor might be set to work in &quot;read only&quot; mode. In read only mode, changing the content will be not possible and clicking on a link will navigate to its URL instead to open a dialog for editing it.</h4>
+<p><span class="code-header">The read only mode can be set by passing the <strong>readOnly</strong> property to the editor with value <code>true</code>:</span></p>
+<pre><code class="language-js">var editor = AlloyEditor.editable('editable', {lb}
+    readOnly{literal}:{/literal} true
+{rb}
+{rb});
+</code></pre>
+<p>The value of the <code>readOnly</code> property might be `true` or `false`. If set to <code>true</code> this means changes to the content won't be possible and clicking on a link will navigate to its URL instead to open a dialog for changing it.</p>
+<p>This behavior might be changed any time using the following code: </p>
+<pre><code class="language-js">var nativeEditor = editor.get('nativeEditor');
+nativeEditor.setReadOnly(false);
+``
+&lt;p&gt;This will make the content editable again.&lt;/p&gt;</code></pre>
+
+		{/param}
+	{/call}
+{/template}

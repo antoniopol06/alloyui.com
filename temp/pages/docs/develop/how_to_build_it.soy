@@ -1,0 +1,41 @@
+
+{namespace docsDevelopHowToBuildItHtml}
+
+/**
+ *
+ */
+{template .render}
+	{call guide.render data="all"}
+		{param content kind="html"}
+			<h6>How to build a version of AlloyEditor.</h6>
+<article id="article1">
+<h2>Install NodeJS</h2>
+<p>Using your browser, navigate to http://nodejs.org and install NodeJS.</p>
+</article>
+<article id="article2">
+<h2>Install Gulp</h2>
+<p><span class="code-header">Open a terminal on your computer and execute</span></p>
+<pre><code class="language-bash">[sudo] npm install -g gulp
+</code></pre>
+</article>
+<article id="article3">
+<h2>Fork AlloyEditor</h2>
+<p>Use the <strong>Fork</strong> button in our <a href="https://github.com/liferay/alloy-editor">Github Repository page</a> to get a copy of alloyEditor. After that, follow the instructions to clone the project into your computer.</p>
+</article>
+<article id="article4">
+<h2>Install AlloyEditor dependencies</h2>
+<p><span class="code-header">Navigate to the AlloyEditor project in your computer and execute</span></p>
+<pre><code class="language-bash">[sudo] npm install
+</code></pre>
+</article>
+<article id="article5">
+<h2>Build AlloyEditor</h2>
+<p><span class="code-header">Navigate to the AlloyEditor project in your computer and execute</span></p>
+<pre><code class="language-bash">gulp build
+</code></pre>
+<p class="guide-note">There are other gulp tasks you can use like <strong>release</strong> to generate a bundled zip file, or <strong>watch</strong> if you're in development mode</p>
+</article>
+
+		{/param}
+	{/call}
+{/template}

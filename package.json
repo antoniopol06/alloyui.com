@@ -1,32 +1,21 @@
 {
-  "name": "alloyui.com",
-  "version": "1.0.0",
-  "description": "Alloy is a UI metaframework that provides a consistent and simple API for building web applications across all three levels of the browser: structure, style and behavior.",
-  "homepage": "http://alloyui.com",
+  "name": "docs-starter-kit",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "http://github.com/liferay/alloyui.com.git"
-  },
-  "engines": {
-    "node": ">=0.8.0",
-    "npm": ">=1.2.10"
-  },
-  "scripts": {
-    "test": "docpad generate"
+    "url": "https://github.com/Robert-Frampton/docs-starter-kit"
   },
   "dependencies": {
-    "docpad": "~6.78.1",
-    "docpad-plugin-cleanurls": "~2.7.0",
-    "docpad-plugin-eco": "~2.1.0",
-    "docpad-plugin-highlightjs": "~2.3.0",
-    "docpad-plugin-marked": "~2.3.0",
-    "docpad-plugin-related": "~2.2.2"
+    "alloyeditor": "^1.3.0",
+    "metal-ssg-components": "^0.0.5",
+    "westyle": "wedeploy/westyle#master"
   },
   "devDependencies": {
-    "async": "~0.9.0",
-    "command": "0.0.5",
-    "fs-extra": "~0.18.3",
-    "grunt": "~0.4.5",
-    "which": "1.1.1"
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-sass": "^2.0.1",
+    "metal-ssg": "^0.1.0",
+    "run-sequence": "^1.2.2"
   }
 }

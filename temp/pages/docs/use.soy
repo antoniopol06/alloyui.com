@@ -1,0 +1,38 @@
+
+{namespace docsUseHtml}
+
+/**
+ *
+ */
+{template .render}
+	{call guide.render data="all"}
+		{param content kind="html"}
+			<h6>The section below assumes that you are using the default UI, which is built using React. The AlloyEditor core is fully separated from the UI and creating another one based on any other framework is very easy.</h6>
+<article id="article1">
+<h2>Download AlloyEditor</h2>
+<p>Option 1) Download AlloyEditor from <a href="<%= @getDownloadUrl() %>" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Top', '<%= @getDownloadUrl() %>']);">here</a>, then unzip it.</p>
+<p>Option 2) Install AlloyEditor via Bower (<code>bower install alloyeditor</code>)</p>
+<p>Option 3) Install AlloyEditor via NPM (<code>npm install alloyeditor</code>)</p>
+</article>
+<article id="article2">
+<h2>Copy and Paste</h2>
+<p>If you downloaded the zip file:</p>
+<pre><code class="language-html">&lt;link href=&quot;alloy-editor/assets/alloy-editor-ocean-min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;alloy-editor/alloy-editor-all-min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>If you downloaded it via Bower:</p>
+<pre><code class="language-html">&lt;link href=&quot;bower_components/alloyeditor/dist/alloy-editor/assets/alloy-editor-ocean-min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;bower_components/alloyeditor/dist/alloy-editor/alloy-editor-all-min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</article>
+<article id="article3">
+<h2>Use AlloyEditor</h2>
+<p><span class="code-header">Invoke the <code>editable</code> static method on AlloyEditor passing the ID of the node you want to edit</span></p>
+<pre><code class="language-js">AlloyEditor.editable('myContentEditable');
+</code></pre>
+<p class="guide-note">And that is everything you need to get started!</p>
+</article>
+
+		{/param}
+	{/call}
+{/template}

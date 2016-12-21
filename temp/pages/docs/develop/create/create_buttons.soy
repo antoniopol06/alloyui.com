@@ -1,0 +1,69 @@
+
+{namespace docsDevelopCreateCreateButtonsHtml}
+
+/**
+ *
+ */
+{template .render}
+	{call guide.render data="all"}
+		{param content kind="html"}
+			<h6>If you run the editor with the default UI, which is written in React, then adding a button will be straightforward. Buttons are standard React classes. For your convenience, there is also a number of mixins, which you can use that provide basic functionality out of the box. Then, use CKEditor's API to do style the content and that is it!</h6>
+<article id="article1">
+<h2>Creating a Button</h2>
+<p><span class="code-header">Example of a new button that converts the current selection into a marquee</span></p>
+<pre><code class="language-js">// Use the built-in version of React if your site does not use React
+var React = AlloyEditor.React;
+
+var ButtonMarquee = React.createClass({lb}
+    mixins: [AlloyEditor.ButtonStyle, AlloyEditor.ButtonStateClasses, AlloyEditor.ButtonActionStyle],
+
+    propTypes: {lb}
+        editor: React.PropTypes.object.isRequired
+    {rb},
+
+    getDefaultProps: function() {lb}
+        return {lb}
+            style: {lb}
+                element: 'marquee'
+            {rb}
+        {rb};
+    {rb},
+
+    statics: {lb}
+        key: 'marquee'
+    {rb},
+
+    render: function() {lb}
+        var cssClass = 'ae-button ' + this.getStateClasses();
+
+        return (
+            &lt;button className={lb}cssClass{rb} data-type=&quot;button-marquee&quot; onClick={lb}this.applyStyle{rb} tabIndex={lb}this.props.tabIndex{rb}&gt;
+                &lt;span className=&quot;ae-icon-separator&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+        );
+    {rb}
+{rb});
+
+AlloyEditor.Buttons[ButtonMarquee.key] = AlloyEditor.ButtonMarquee = ButtonMarquee;
+</code></pre>
+</article>
+<article id="article2">
+<h2>Using a Button</h2>
+<p>After creating your button, you have to add it to the configuration of the Toolbar where you want to use it.</p>
+<p><span class="code-header">Buttons, which handle styles are usually used within the Styles Toolbar, inside a text-like selection</span></p>
+<pre><code class="language-js">var toolbars = [
+    styles: {lb}
+        selections: [{lb}
+            name: 'text',
+            buttons: ['styles', 'bold', 'italic', 'underline', 'link', 'twitter', 'marquee'],
+            test: AlloyEditor.SelectionTest.text
+        {rb}],
+        tabIndex: 1
+    {rb}
+];
+</code></pre>
+<p>In this case the <em>Marquee</em> button will appear after <em>Twitter</em> one, last on the toolbar.</p>
+</article>
+		{/param}
+	{/call}
+{/template}
